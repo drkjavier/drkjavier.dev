@@ -22,6 +22,17 @@ const { projects, translations, lang } = Astro.props;
                 {project.company} — {project.period}
               </p>
             </div>
+            {project.link && (
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener"
+                class="text-sm font-medium hover:underline whitespace-nowrap"
+                style={`color: var(--color-accent)`}
+              >
+                {lang === 'es' ? 'Ver en GitHub ↗' : 'View on GitHub ↗'}
+              </a>
+            )}
           </div>
 
           <p class="mb-4" style={`color: var(--color-text-muted)`}>

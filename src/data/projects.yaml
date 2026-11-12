@@ -32,3 +32,209 @@ projects:
       - "Apache Camel"
       - "Oracle"
       - "REST APIs"
+
+  - name: "drkjavier.dev"
+    company: "Open Source"
+    period: "2026"
+    link: "https://github.com/drkjavier/drkjavier.dev"
+    description:
+      es: >
+        Portafolio personal construido con Astro, Tailwind CSS y React, con
+        contenido estructurado en YAML, internacionalización ES/EN y
+        despliegue continuo en Vercel.
+      en: >
+        Personal portfolio built with Astro, Tailwind CSS and React, with
+        YAML-driven content, ES/EN internationalization and continuous
+        deployment on Vercel.
+    highlights:
+      - es: "Sitio estático de alto rendimiento con rutas independientes para español e inglés."
+        en: "High-performance static site with independent routes for Spanish and English."
+      - es: "Contenido desacoplado en archivos YAML (perfil, experiencia, proyectos, skills) fácil de actualizar."
+        en: "Content decoupled into YAML files (profile, experience, projects, skills) for easy updates."
+      - es: "Build y despliegue automatizados con GitHub y Vercel."
+        en: "Automated build and deploy with GitHub and Vercel."
+    technologies:
+      - "Astro"
+      - "Tailwind CSS"
+      - "React"
+      - "TypeScript"
+      - "Vercel"
+
+  - name: "IT Tickets"
+    company: "Open Source"
+    period: "2026"
+    link: "https://github.com/drkjavier/it-tickets"
+    description:
+      es: >
+        Sistema de tickets construido con Next.js (App Router), Prisma y
+        PostgreSQL, con editor enriquecido TipTap, almacenamiento de medios
+        en Cloudinary y notificaciones por correo con Brevo.
+      en: >
+        Ticketing system built with Next.js (App Router), Prisma and
+        PostgreSQL, featuring a TipTap rich-text editor, Cloudinary media
+        storage and Brevo email notifications.
+    highlights:
+      - es: "Editor enriquecido TipTap con imágenes, enlaces y sanitización de HTML en el servidor."
+        en: "TipTap rich-text editor with images, links and server-side HTML sanitization."
+      - es: "Autenticación con JWT (jose) y hash de contraseñas con bcryptjs."
+        en: "JWT authentication (jose) with bcryptjs password hashing."
+      - es: "Flujos asíncronos orquestados con Inngest y envío de correos transaccionales con Brevo."
+        en: "Asynchronous workflows orchestrated with Inngest and transactional emails via Brevo."
+      - es: "Desplegado en Vercel."
+        en: "Deployed on Vercel."
+    technologies:
+      - "Next.js"
+      - "React"
+      - "TypeScript"
+      - "Prisma"
+      - "PostgreSQL"
+      - "TipTap"
+      - "Cloudinary"
+      - "Inngest"
+      - "Vercel"
+
+  - name: "DC Rentals"
+    company: "Open Source"
+    period: "2026"
+    link: "https://github.com/drkjavier/dc-rentals"
+    description:
+      es: >
+        Landing page MVP de alquiler de RVs construida con Astro y Supabase,
+        con componentes React, estado global con Zustand, validación con Zod
+        y suite de pruebas con Vitest y Playwright.
+      en: >
+        RV rental MVP landing page built with Astro and Supabase, with React
+        components, global state via Zustand, Zod validation and a Vitest +
+        Playwright test suite.
+    highlights:
+      - es: "Integración con Supabase para datos y funcionalidad backend sin servidor propio."
+        en: "Supabase integration for data and backend functionality without a custom server."
+      - es: "Pruebas automatizadas: unitarias con Vitest y end-to-end con Playwright."
+        en: "Automated testing: unit tests with Vitest and end-to-end tests with Playwright."
+      - es: "Especificaciones técnicas y change requests versionados dentro del repositorio."
+        en: "Technical specs and change requests versioned inside the repository."
+    technologies:
+      - "Astro"
+      - "React"
+      - "Supabase"
+      - "TypeScript"
+      - "Tailwind CSS"
+      - "Zustand"
+      - "Zod"
+      - "Vitest"
+      - "Playwright"
+
+  - name: "Bean Auditor App"
+    company: "Open Source"
+    period: "2026"
+    link: "https://github.com/drkjavier/bean-auditor-app"
+    description:
+      es: >
+        Aplicación móvil de auditoría construida en React Native con mapas
+        interactivos (MapLibre y Leaflet) y cálculos geoespaciales con turf
+        para captura y revisión en campo.
+      en: >
+        Audit mobile application built with React Native using interactive
+        maps (MapLibre and Leaflet) and geospatial calculations with turf
+        for field capture and review.
+    highlights:
+      - es: "Mapas nativos con MapLibre/MapTiler y capas web con Leaflet y clustering."
+        en: "Native maps with MapLibre/MapTiler plus web layers with Leaflet and clustering."
+      - es: "Lógica geoespacial con turf: distancia, rumbo y polígonos."
+        en: "Geospatial logic with turf: distance, bearing and polygons."
+      - es: "Navegación con React Navigation (tabs y stack) e iconografía Material Design."
+        en: "Navigation with React Navigation (bottom tabs and stack) with Material Design icons."
+    technologies:
+      - "React Native"
+      - "TypeScript"
+      - "MapLibre"
+      - "Leaflet"
+      - "turf"
+      - "React Navigation"
+
+  - name: "tuipr + Homebrew tap"
+    company: "Open Source (fork)"
+    period: "2026"
+    link: "https://github.com/drkjavier/tuipr"
+    description:
+      es: >
+        Fork de tuipr, un gestor del ciclo de vida de Pull Requests en la
+        terminal escrito en Go con Charm Bubbletea, con soporte de GitHub CLI
+        y distribución mediante un tap de Homebrew propio.
+      en: >
+        Fork of tuipr, a keyboard-driven Pull Request lifecycle manager for
+        the terminal written in Go with Charm Bubbletea, with GitHub CLI
+        support and distribution through a custom Homebrew tap.
+    highlights:
+      - es: "Navegación estilo LazyGit con paneles numerados y atajos de teclado Vim."
+        en: "LazyGit-style navigation with numbered panels and Vim keybindings."
+      - es: "Creación, revisión y merge de PRs (merge, squash o rebase) desde la terminal."
+        en: "Create, review and merge PRs (merge, squash or rebase) from the terminal."
+      - es: "Detección de conflictos con indicadores visuales y atajos a nvim."
+        en: "Conflict detection with visual indicators and nvim hotkeys."
+      - es: "Tap de Homebrew (homebrew-tuipr) para instalación con brew install."
+        en: "Homebrew tap (homebrew-tuipr) for brew install installation."
+    technologies:
+      - "Go"
+      - "Bubbletea"
+      - "GitHub CLI"
+      - "Homebrew"
+      - "Ruby"
+
+  - name: "Backend & Cloud Labs (Java)"
+    company: "Open Source"
+    period: "2025"
+    link: "https://github.com/drkjavier/microservicios-springboot"
+    description:
+      es: >
+        Colección de laboratorios de backend: microservicios con Spring Boot,
+        integración con Apache Camel, primeros pasos y microservicios con
+        Quarkus, y ejercicios de orquestación con Kubernetes.
+      en: >
+        Collection of backend labs: microservices with Spring Boot,
+        Apache Camel integration, getting started and microservices with
+        Quarkus, plus Kubernetes orchestration exercises.
+    highlights:
+      - es: "microservicios-springboot: ejemplos de servicios y APIs con Spring Boot."
+        en: "microservicios-springboot: services and API examples with Spring Boot."
+      - es: "advanced-apache-camel y spring-camel-project: patrones de integración con Apache Camel."
+        en: "advanced-apache-camel and spring-camel-project: integration patterns with Apache Camel."
+      - es: "start-using-quarkus y building-microservices-with-quarkus: adopción de Quarkus."
+        en: "start-using-quarkus and building-microservices-with-quarkus: Quarkus adoption."
+      - es: "curso-kubernetes: ejercicios de despliegue y orquestación con Kubernetes."
+        en: "curso-kubernetes: deployment and orchestration exercises with Kubernetes."
+    technologies:
+      - "Java"
+      - "Spring Boot"
+      - "Apache Camel"
+      - "Quarkus"
+      - "Kubernetes"
+      - "Maven"
+
+  - name: "GitHub Actions & Automation"
+    company: "Open Source"
+    period: "2025"
+    link: "https://github.com/drkjavier/gh-events"
+    description:
+      es: >
+        Laboratorios de automatización CI/CD alrededor de GitHub Actions:
+        workflows personalizados, manejo de variables de entorno, eventos del
+        ciclo de vida de GitHub y construcción de imágenes de contenedor.
+      en: >
+        CI/CD automation labs around GitHub Actions: custom workflows,
+        environment variable handling, GitHub lifecycle events and container
+        image builds.
+    highlights:
+      - es: "gh-events: workflows que reaccionan a eventos del repositorio."
+        en: "gh-events: workflows that react to repository events."
+      - es: "gha-env: gestión de variables de entorno en pipelines."
+        en: "gha-env: environment variable handling in pipelines."
+      - es: "hg-containers: build y publicación de imágenes de contenedor."
+        en: "hg-containers: container image build and publishing."
+      - es: "gh-first-action y github-crash-course: plantillas y guías de inicio rápido."
+        en: "gh-first-action and github-crash-course: starter templates and quick-start guides."
+    technologies:
+      - "GitHub Actions"
+      - "JavaScript"
+      - "Docker"
+      - "CI/CD"
