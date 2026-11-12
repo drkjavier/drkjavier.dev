@@ -1,0 +1,62 @@
+---
+interface Props {
+  experience: Record<string, any>;
+  translations: Record<string, any>;
+  lang: 'es' | 'en';
+}
+
+const { experience, translations, lang } = Astro.props;
+
+function formatDate(dateStr: string | null): string {
+  if (!dateStr) return translations.experience.present[lang];
+  const [year, month] = dateStr.split('-');
+  const months: Record<string, Record<string, string>> = {
+    es: { '01': 'Ene', '02': 'Feb', '03': 'Mar', '04': 'Abr', '05': 'May', '06': 'Jun', '07': 'Jul', '08': 'Ago', '09': 'Sep', '10': 'Oct', '11': 'Nov', '12': 'Dic' },
+    en: { '01': 'Jan', '02': 'Feb', '03': 'Mar', '04': 'Apr', '05': 'May', '06': 'Jun', '07': 'Jul', '08': 'Aug', '09': 'Sep', '10': 'Oct', '11': 'Nov', '12': 'Dec' },
+  };
+  return `${months[lang][month]} ${year}`;
+}
+---
+
+<section id="experience" class="section">
+  <h2 class="section-title">{translations.experience.title[lang]}</h2>
+
+  <div class="max-w-3xl mx-auto">
+    {experience.jobs.map((job: any) => (
+      <div class="timeline-item">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
+          <div>
+            <h3 class="text-lg font-bold" style={`color: var(--color-primary)`}>{job.role}</h3>
+            <p class="text-md font-medium" style={`color: var(--color-accent)`}>{job.company}</p>
+          </div>
+          <div class="text-sm font-medium" style={`color: var(--color-text-muted)`}>
+            {formatDate(job.startDate)} — {job.endDate ? formatDate(job.endDate) : translations.experience.present[lang]}
+          </div>
+        </div>
+
+        <p class="text-sm mb-3" style={`color: var(--color-text-muted)`}>
+          📍 {job.location}
+        </p>
+
+        <p class="mb-4" style={`color: var(--color-text)`}>
+          {job.description[lang]}
+        </p>
+
+        <ul class="space-y-2 mb-4">
+          {job.achievements.map((achievement: any) => (
+            <li class="flex items-start gap-2 text-sm" style={`color: var(--color-text-muted)`}>
+              <span class="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style={`background-color: var(--color-accent)`}></span>
+              {achievement[lang]}
+            </li>
+          ))}
+        </ul>
+
+        <div class="flex flex-wrap gap-2">
+          {job.technologies.map((tech: string) => (
+            <span class="badge-tech">{tech}</span>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

@@ -1,0 +1,58 @@
+/* ============================================
+   THEME: Corporate
+   Cambiar el import en Layout.astro para migrar de tema
+   ============================================ */
+
+:root {
+  /* Primary palette */
+  --color-primary: #1a365d;
+  --color-primary-light: #2c5282;
+  --color-primary-dark: #0f2440;
+
+  /* Secondary palette */
+  --color-secondary: #2d3748;
+  --color-secondary-light: #4a5568;
+
+  /* Accent */
+  --color-accent: #3182ce;
+  --color-accent-light: #4299e1;
+
+  /* Backgrounds */
+  --color-background: #ffffff;
+  --color-surface: #f7fafc;
+  --color-surface-alt: #edf2f7;
+
+  /* Text */
+  --color-text: #1a202c;
+  --color-text-muted: #718096;
+  --color-text-inverse: #ffffff;
+
+  /* Borders */
+  --color-border: #e2e8f0;
+  --color-border-light: #edf2f7;
+
+  /* Spacing */
+  --section-padding: 5rem;
+  --container-max-width: 1200px;
+
+  /* Typography */
+  --font-size-hero: 3.5rem;
+  --font-size-h2: 2rem;
+  --font-size-h3: 1.5rem;
+  --font-size-body: 1rem;
+  --font-size-small: 0.875rem;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+
+  /* Border radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+}

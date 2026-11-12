@@ -1,0 +1,87 @@
+# ============================================
+# UI TRANSLATIONS - Textos de la interfaz
+# Las tecnologías y nombres técnicos NO van aquí (siempre en inglés)
+# ============================================
+navigation:
+  about:
+    es: "Sobre mí"
+    en: "About"
+  skills:
+    es: "Habilidades"
+    en: "Skills"
+  experience:
+    es: "Experiencia"
+    en: "Experience"
+  projects:
+    es: "Proyectos"
+    en: "Projects"
+  education:
+    es: "Educación"
+    en: "Education"
+  contact:
+    es: "Contacto"
+    en: "Contact"
+
+hero:
+  cta:
+    es: "Ver experiencia"
+    en: "View experience"
+  available:
+    es: "Disponible para nuevos retos"
+    en: "Available for new challenges"
+
+about:
+  title:
+    es: "Sobre mí"
+    en: "About me"
+
+skills:
+  title:
+    es: "Habilidades técnicas"
+    en: "Technical skills"
+
+experience:
+  title:
+    es: "Experiencia profesional"
+    en: "Professional experience"
+  present:
+    es: "Actualidad"
+    en: "Present"
+
+projects:
+  title:
+    es: "Proyectos destacados"
+    en: "Key projects"
+  highlight:
+    es: "Logro clave"
+    en: "Key highlight"
+
+education:
+  title:
+    es: "Educación"
+    en: "Education"
+  inProgress:
+    es: "En progreso"
+    en: "In progress"
+  completed:
+    es: "Completado"
+    en: "Completed"
+
+contact:
+  title:
+    es: "Contacto"
+    en: "Contact"
+  description:
+    es: "¿Interesado en colaborar? No dudes en contactarme."
+    en: "Interested in collaborating? Feel free to reach out."
+  sendEmail:
+    es: "Enviar correo"
+    en: "Send email"
+
+footer:
+  rights:
+    es: "Todos los derechos reservados."
+    en: "All rights reserved."
+  builtWith:
+    es: "Construido con Astro"
+    en: "Built with Astro"

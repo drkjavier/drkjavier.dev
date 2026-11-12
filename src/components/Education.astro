@@ -1,0 +1,41 @@
+---
+interface Props {
+  education: Record<string, any>;
+  translations: Record<string, any>;
+  lang: 'es' | 'en';
+}
+
+const { education, translations, lang } = Astro.props;
+
+const statusLabels: Record<string, Record<string, string>> = {
+  in_progress: { es: 'En progreso', en: 'In progress' },
+  completed: { es: 'Completado', en: 'Completed' },
+};
+---
+
+<section id="education" class="section">
+  <h2 class="section-title">{translations.education.title[lang]}</h2>
+
+  <div class="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+    {education.degrees.map((degree: any) => (
+      <div class="card">
+        <div class="flex items-start gap-3">
+          <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style={`background-color: var(--color-surface-alt)`}>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-md font-bold mb-1" style={`color: var(--color-primary)`}>{degree.title[lang]}</h3>
+            <p class="text-sm font-medium" style={`color: var(--color-accent)`}>{degree.institution}</p>
+            <p class="text-xs mt-1" style={`color: var(--color-text-muted)`}>{degree.location}</p>
+            <span class="badge mt-2 text-xs">
+              {degree.status === 'in_progress' ? '🔄' : '✅'} {statusLabels[degree.status][lang]}
+            </span>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

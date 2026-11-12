@@ -1,0 +1,30 @@
+# ============================================
+# PROFILE DATA - Actualizar desde el CV
+# ============================================
+name: "Dereck Curtis Albizu"
+title: "Senior Software Engineer"
+subtitle: "Full-Stack & AI-Augmented Development"
+email: "drkjavier@gmail.com"
+phone: "+502 3607 8418"
+location: "Guatemala City, Guatemala"
+linkedin: "https://linkedin.com/in/dereck-javier-curtis-ba7319196"
+github: "https://github.com/drkjavier"
+yearsOfExperience: 10
+
+summary:
+  es: >
+    Ingeniero de Software Senior con más de 10 años de experiencia
+    arquitectando y entregando soluciones full-stack empresariales para
+    sistemas de telecomunicaciones de misión crítica. Experto en arquitecturas
+    backend Java, desarrollo frontend React/Angular e infraestructura
+    cloud-native. Reconocido por liderar iniciativas de modernización de
+    legacy, migraciones a microservicios y flujos de desarrollo aumentados
+    por IA usando GitHub Copilot.
+  en: >
+    Results-driven Senior Software Engineer with more than 10 years of
+    experience architecting and delivering enterprise-grade full-stack
+    solutions for mission-critical telecommunications systems. Proven
+    expertise in Java backend architectures, React/Angular frontend
+    development, and cloud-native infrastructure. Recognized for leading
+    legacy modernization initiatives, microservices migrations, and
+    pioneering AI-augmented development workflows using GitHub Copilot.

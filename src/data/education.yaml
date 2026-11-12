@@ -1,0 +1,21 @@
+# ============================================
+# EDUCATION DATA - Actualizar desde el CV
+# ============================================
+degrees:
+  - title:
+      es: "Licenciatura en Sistemas de Información y Ciencias de la Computación"
+      en: "Bachelor of Science in Information Systems and Computer Science"
+    institution: "Universidad de San Carlos de Guatemala"
+    location: "Guatemala City, Guatemala"
+    status: "in_progress"
+    startDate: null
+    endDate: null
+
+  - title:
+      es: "Bachiller en Ciencias y Letras"
+      en: "Bachelor in Sciences and Letters"
+    institution: "Colegio Italiano de Guatemala"
+    location: "Guatemala City, Guatemala"
+    status: "completed"
+    startDate: null
+    endDate: null

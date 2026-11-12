@@ -1,0 +1,35 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Navbar from '@/components/Navbar.astro';
+import Hero from '@/components/Hero.astro';
+import About from '@/components/About.astro';
+import Skills from '@/components/Skills.astro';
+import Experience from '@/components/Experience.astro';
+import Projects from '@/components/Projects.astro';
+import Education from '@/components/Education.astro';
+import Contact from '@/components/Contact.astro';
+import Footer from '@/components/Footer.astro';
+import LanguageToggle from '@/components/LanguageToggle.tsx';
+import { loadAllData } from '@/lib/data';
+
+const data = loadAllData();
+const lang = 'es';
+---
+
+<Layout lang={lang}>
+  <Navbar lang={lang} translations={data.translations}>
+    <LanguageToggle client:load slot="toggle" currentLang={lang} />
+  </Navbar>
+
+  <main>
+    <Hero profile={data.profile} translations={data.translations} lang={lang} />
+    <About profile={data.profile} translations={data.translations} lang={lang} />
+    <Skills skills={data.skills} translations={data.translations} lang={lang} />
+    <Experience experience={data.experience} translations={data.translations} lang={lang} />
+    <Projects projects={data.projects} translations={data.translations} lang={lang} />
+    <Education education={data.education} translations={data.translations} lang={lang} />
+    <Contact profile={data.profile} translations={data.translations} lang={lang} />
+  </main>
+
+  <Footer profile={data.profile} translations={data.translations} lang={lang} />
+</Layout>

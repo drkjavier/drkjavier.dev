@@ -1,0 +1,34 @@
+# ============================================
+# PROJECTS DATA - Actualizar desde el CV
+# ============================================
+projects:
+  - name: "Network Configuration Management System"
+    company: "Ericsson Guatemala"
+    period: "2018-2019"
+    description:
+      es: >
+        Sistema de gestión de configuración de red que monitorea millones
+        de nodos de red simultáneamente, permitiendo a los ingenieros de
+        red administrar y configurar infraestructura de telecomunicaciones
+        de manera eficiente.
+      en: >
+        Network configuration management system that monitors millions of
+        network nodes simultaneously, enabling network engineers to
+        efficiently manage and configure telecommunications infrastructure.
+    highlights:
+      - es: "Arquitectura de backend de microservicios usando Java/Spring Boot con Apache Camel para integración con sistemas legacy."
+        en: "Architected microservices backend using Java/Spring Boot with Apache Camel for seamless legacy system integration."
+      - es: "Dashboard administrativo en tiempo real con Angular 12 y TypeScript con visualización interactiva de datos."
+        en: "Real-time administrative dashboard using Angular 12 and TypeScript with interactive data visualization."
+      - es: "State management complejo y actualizaciones en tiempo real para monitorear millones de nodos simultáneamente."
+        en: "Complex state management and real-time updates to monitor millions of network nodes simultaneously."
+      - es: "Logré una reducción del 60% en tiempo de configuración manual para ingenieros de campo."
+        en: "Achieved a 60% reduction in manual configuration time for field engineers through automation."
+    technologies:
+      - "Java"
+      - "Spring Boot"
+      - "Angular"
+      - "TypeScript"
+      - "Apache Camel"
+      - "Oracle"
+      - "REST APIs"

@@ -1,0 +1,29 @@
+{
+  "name": "drkjavier-dev",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Portfolio de Dereck Curtis - Senior Software Engineer",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "deploy": "astro build && vercel --prod",
+    "deploy:preview": "astro build && vercel"
+  },
+  "dependencies": {
+    "astro": "^5.0.0",
+    "yaml": "^2.6.0"
+  },
+  "devDependencies": {
+    "@astrojs/tailwind": "^6.0.0",
+    "@astrojs/react": "^4.0.0",
+    "@astrojs/vercel": "^8.0.0",
+    "tailwindcss": "^3.4.0",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0",
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0"
+  }
+}

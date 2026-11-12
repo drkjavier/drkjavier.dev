@@ -1,0 +1,103 @@
+# ============================================
+# EXPERIENCE DATA - Actualizar desde el CV
+# ============================================
+jobs:
+  - company: "Ericsson Guatemala"
+    role: "Senior Software Engineer"
+    location: "Guatemala City, Guatemala"
+    startDate: "2015-09"
+    endDate: "2026-02"
+    current: false
+    description:
+      es: >
+        Arquitecté e implementé soluciones end-to-end: backend de
+        microservicios Java/Spring Boot con dashboards frontend React/Angular
+        para plataformas de gestión y operaciones de red.
+      en: >
+        Architected and implemented end-to-end solutions: Java/Spring Boot
+        microservices backend with React/Angular frontend dashboards for
+        network management and operations platforms.
+    achievements:
+      - es: "Lideré la migración de arquitecturas monolíticas Java EE a microservicios cloud-native, logrando una mejora del 40% en escalabilidad del sistema."
+        en: "Led the migration of monolithic Java EE architectures to cloud-native microservices, achieving a 40% improvement in system scalability."
+      - es: "Diseñé y desarrollé APIs RESTful e implementé patrones de API Gateway para integración de sistemas complejos."
+        en: "Designed and developed RESTful APIs and implemented API Gateway patterns for complex system integration."
+      - es: "Construí interfaces frontend responsivas e intensivas en datos que procesan streams de datos de telecomunicaciones en tiempo real."
+        en: "Built responsive, data-intensive frontend interfaces that process real-time telecommunications data streams."
+      - es: "Arquitecté despliegues containerizados usando Docker y orquestación Kubernetes, asegurando alta disponibilidad."
+        en: "Architected containerized deployments using Docker and Kubernetes orchestration, ensuring high availability."
+      - es: "Implementé pipelines CI/CD completos con GitHub Actions, eliminando despliegues manuales y reduciendo incidentes en producción en un 30%."
+        en: "Implemented complete CI/CD pipelines with GitHub Actions, eliminating manual deployments and reducing production incidents by 30%."
+      - es: "Optimicé rendimiento de base de datos Oracle, reduciendo tiempos de ejecución de consultas críticas en un 50%."
+        en: "Optimized Oracle database performance, reducing critical query execution times by 50%."
+      - es: "Pionero en la adopción de GitHub Copilot, incrementando la velocidad de entrega en un 25%."
+        en: "Pioneered the adoption of GitHub Copilot, increasing feature delivery velocity by 25%."
+      - es: "Mentoré a más de 5 desarrolladores en técnicas de desarrollo aumentadas por IA."
+        en: "Mentored more than 5 developers in AI-augmented development techniques."
+    technologies:
+      - "Java 8-17"
+      - "Spring Boot"
+      - "Spring Cloud"
+      - "React"
+      - "Angular"
+      - "TypeScript"
+      - "Kubernetes"
+      - "Docker"
+      - "GitHub Copilot"
+      - "Oracle DB"
+      - "Apache Camel"
+      - "GitHub Actions"
+
+  - company: "BDG, S.A."
+    role: "Fullstack Developer"
+    location: "Guatemala City, Guatemala"
+    startDate: "2015-04"
+    endDate: null
+    current: false
+    description:
+      es: >
+        Desarrollé aplicaciones web full-stack usando tecnologías backend
+        Java y frameworks frontend modernos de JavaScript (Ionic).
+      en: >
+        Developed full-stack web applications using Java backend technologies
+        and modern JavaScript frontend frameworks (Ionic).
+    achievements:
+      - es: "Colaboré en el desarrollo y mantenimiento de un servicio REST utilizado como puente entre la aplicación móvil y los servicios del cliente."
+        en: "Collaborated in developing and maintaining a REST service used as a bridge between the mobile application and client services."
+    technologies:
+      - "Java 8-17"
+      - "Spring Boot"
+      - "Spring Cloud"
+      - "Angular"
+      - "TypeScript"
+      - "GitLab"
+
+  - company: "Icon Americas S.A."
+    role: "Full-Stack Application Developer"
+    location: "Guatemala City, Guatemala"
+    startDate: "2013-09"
+    endDate: "2015-09"
+    current: false
+    description:
+      es: >
+        Desarrollé aplicaciones web full-stack usando tecnologías backend
+        Java y frameworks frontend de JavaScript modernos.
+      en: >
+        Developed full-stack web applications using Java backend technologies
+        and modern JavaScript frontend frameworks.
+    achievements:
+      - es: "Diseñé esquemas de base de datos y optimicé consultas SQL complejas para sistemas empresariales de rendimiento crítico."
+        en: "Designed database schemas and optimized complex SQL queries for performance-critical enterprise systems."
+      - es: "Proporcioné soporte técnico Nivel 2/3 para aplicaciones en producción, asegurando 99.5% de disponibilidad."
+        en: "Provided Level 2/3 technical support for production applications, ensuring 99.5% system uptime."
+      - es: "Mantenimiento evolutivo y correctivo, mejorando los tiempos de respuesta en un 25%."
+        en: "Delivered evolutionary and corrective maintenance, improving application response times by 25%."
+      - es: "Colaboré directamente con stakeholders para traducir requisitos de negocio en soluciones técnicas escalables."
+        en: "Collaborated directly with stakeholders to translate business requirements into scalable technical solutions."
+    technologies:
+      - "Java"
+      - "JavaScript"
+      - "SQL Server"
+      - "Oracle"
+      - "HTML5/CSS3"
+      - "RESTful Web Services"

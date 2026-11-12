@@ -1,0 +1,21 @@
+---
+interface Props {
+  profile: Record<string, any>;
+  translations: Record<string, any>;
+  lang: 'es' | 'en';
+}
+
+const { profile, translations, lang } = Astro.props;
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="py-8 px-4 border-t" style={`border-color: var(--color-border); background-color: var(--color-primary-dark)`}>
+  <div class="container-main flex flex-col md:flex-row items-center justify-between gap-4 text-sm" style={`color: var(--color-text-inverse)`}>
+    <p>
+      © {currentYear} {profile.name}. {translations.footer.rights[lang]}
+    </p>
+    <p class="opacity-70">
+      {translations.footer.builtWith[lang]} ⚡
+    </p>
+  </div>
+</footer>

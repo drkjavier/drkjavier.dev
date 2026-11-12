@@ -1,0 +1,46 @@
+---
+interface Props {
+  profile: Record<string, any>;
+  translations: Record<string, any>;
+  lang: 'es' | 'en';
+}
+
+const { profile, translations, lang } = Astro.props;
+---
+
+<section id="about" class="section">
+  <h2 class="section-title">{translations.about.title[lang]}</h2>
+  <div class="max-w-3xl mx-auto">
+    <p class="text-lg leading-relaxed" style={`color: var(--color-text-muted)`}>
+      {profile.summary[lang]}
+    </p>
+
+    <!-- Quick stats -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
+      <div class="card text-center">
+        <div class="text-3xl font-bold" style={`color: var(--color-primary)`}>10+</div>
+        <div class="text-sm mt-1" style={`color: var(--color-text-muted)`}>
+          {lang === 'es' ? 'Años de experiencia' : 'Years of experience'}
+        </div>
+      </div>
+      <div class="card text-center">
+        <div class="text-3xl font-bold" style={`color: var(--color-primary)`}>3</div>
+        <div class="text-sm mt-1" style={`color: var(--color-text-muted)`}>
+          {lang === 'es' ? 'Empresas' : 'Companies'}
+        </div>
+      </div>
+      <div class="card text-center">
+        <div class="text-3xl font-bold" style={`color: var(--color-primary)`}>5+</div>
+        <div class="text-sm mt-1" style={`color: var(--color-text-muted)`}>
+          {lang === 'es' ? 'Desarrolladores mentorados' : 'Developers mentored'}
+        </div>
+      </div>
+      <div class="card text-center">
+        <div class="text-3xl font-bold" style={`color: var(--color-primary)`}>30%</div>
+        <div class="text-sm mt-1" style={`color: var(--color-text-muted)`}>
+          {lang === 'es' ? 'Menos incidentes prod.' : 'Less prod. incidents'}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

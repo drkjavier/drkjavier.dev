@@ -1,0 +1,114 @@
+/* ============================================
+   GLOBAL STYLES
+   ============================================ */
+@import './themes/theme-corporate.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  a {
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  a:hover {
+    color: var(--color-accent-light);
+  }
+}
+
+@layer components {
+  .section {
+    @apply py-16 px-4 md:px-8;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+  }
+
+  .section-title {
+    @apply text-3xl font-bold mb-8 text-center;
+    color: var(--color-primary);
+  }
+
+  .card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    @apply p-6 transition-shadow;
+  }
+
+  .card:hover {
+    box-shadow: var(--shadow-md);
+  }
+
+  .badge {
+    @apply inline-block px-3 py-1 text-sm font-medium rounded-full;
+    background-color: var(--color-surface-alt);
+    color: var(--color-primary-light);
+    border: 1px solid var(--color-border);
+  }
+
+  .badge-tech {
+    @apply inline-block px-2 py-1 text-xs font-mono rounded;
+    background-color: var(--color-primary-dark);
+    color: var(--color-text-inverse);
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center px-6 py-3 font-semibold rounded-lg transition-all;
+    background-color: var(--color-primary);
+    color: var(--color-text-inverse);
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-primary-light);
+    color: var(--color-text-inverse);
+    box-shadow: var(--shadow-md);
+  }
+
+  .container-main {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+  }
+
+  .timeline-item {
+    @apply relative pl-8 pb-8 border-l-2;
+    border-color: var(--color-border);
+  }
+
+  .timeline-item::before {
+    content: '';
+    @apply absolute w-4 h-4 rounded-full left-[-9px] top-0;
+    background-color: var(--color-accent);
+    border: 2px solid var(--color-background);
+  }
+
+  .timeline-item:last-child {
+    @apply pb-0;
+  }
+}

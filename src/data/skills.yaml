@@ -1,0 +1,93 @@
+# ============================================
+# SKILLS DATA - Actualizar desde el CV
+# Las tecnologías siempre se muestran en inglés (estándar de la industria)
+# ============================================
+categories:
+  - name: "Backend"
+    icon: "server"
+    items:
+      - name: "Java"
+        versions: "8-17"
+        level: 95
+      - name: "Spring Boot"
+        level: 95
+      - name: "Spring Cloud"
+        level: 85
+      - name: "Apache Camel"
+        level: 80
+      - name: "Quarkus"
+        level: 70
+      - name: "Panache ORM"
+        level: 70
+
+  - name: "Frontend"
+    icon: "monitor"
+    items:
+      - name: "React"
+        level: 85
+      - name: "Angular"
+        level: 85
+      - name: "TypeScript"
+        level: 85
+      - name: "JavaScript"
+        level: 90
+      - name: "HTML5"
+        level: 90
+      - name: "CSS3"
+        level: 85
+      - name: "REST API Integration"
+        level: 90
+
+  - name: "Cloud & DevOps"
+    icon: "cloud"
+    items:
+      - name: "Docker"
+        level: 85
+      - name: "Kubernetes"
+        level: 80
+      - name: "Kustomize"
+        level: 70
+      - name: "CI/CD (GitHub Actions)"
+        level: 85
+      - name: "Microservices Architecture"
+        level: 90
+
+  - name: "AI-Augmented"
+    icon: "brain"
+    items:
+      - name: "GitHub Copilot"
+        level: 90
+      - name: "AI-powered Code Generation"
+        level: 85
+      - name: "Automated Documentation"
+        level: 80
+      - name: "Intelligent Code Review"
+        level: 80
+
+  - name: "Databases"
+    icon: "database"
+    items:
+      - name: "Oracle"
+        level: 90
+      - name: "SQL Server"
+        level: 85
+      - name: "MySQL"
+        level: 80
+      - name: "Query Optimization"
+        level: 85
+      - name: "Data Migration"
+        level: 80
+
+  - name: "Methodologies"
+    icon: "workflow"
+    items:
+      - name: "Agile/Scrum"
+        level: 90
+      - name: "Git/GitHub"
+        level: 90
+      - name: "Maven"
+        level: 85
+      - name: "Event-Driven Architecture"
+        level: 80
+      - name: "API Gateway Patterns"
+        level: 85
