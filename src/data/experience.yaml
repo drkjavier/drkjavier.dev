@@ -2,6 +2,30 @@
 # EXPERIENCE DATA - Actualizar desde el CV
 # ============================================
 jobs:
+  - company: "BDG, S.A."
+    role: "Fullstack Developer"
+    location: "Guatemala City, Guatemala"
+    startDate: "2026-05"
+    endDate: null
+    current: true
+    description:
+      es: >
+        Desarrollé aplicaciones web full-stack usando tecnologías backend
+        Java y frameworks frontend modernos de JavaScript (Ionic).
+      en: >
+        Developed full-stack web applications using Java backend technologies
+        and modern JavaScript frontend frameworks (Ionic).
+    achievements:
+      - es: "Colaboré en el desarrollo y mantenimiento de un servicio REST utilizado como puente entre la aplicación móvil y los servicios del cliente."
+        en: "Collaborated in developing and maintaining a REST service used as a bridge between the mobile application and client services."
+    technologies:
+      - "Java 8-17"
+      - "Spring Boot"
+      - "Spring Cloud"
+      - "Angular"
+      - "TypeScript"
+      - "GitLab"
+
   - company: "Ericsson Guatemala"
     role: "Senior Software Engineer"
     location: "Guatemala City, Guatemala"
@@ -47,30 +71,6 @@ jobs:
       - "Oracle DB"
       - "Apache Camel"
       - "GitHub Actions"
-
-  - company: "BDG, S.A."
-    role: "Fullstack Developer"
-    location: "Guatemala City, Guatemala"
-    startDate: "2015-04"
-    endDate: null
-    current: false
-    description:
-      es: >
-        Desarrollé aplicaciones web full-stack usando tecnologías backend
-        Java y frameworks frontend modernos de JavaScript (Ionic).
-      en: >
-        Developed full-stack web applications using Java backend technologies
-        and modern JavaScript frontend frameworks (Ionic).
-    achievements:
-      - es: "Colaboré en el desarrollo y mantenimiento de un servicio REST utilizado como puente entre la aplicación móvil y los servicios del cliente."
-        en: "Collaborated in developing and maintaining a REST service used as a bridge between the mobile application and client services."
-    technologies:
-      - "Java 8-17"
-      - "Spring Boot"
-      - "Spring Cloud"
-      - "Angular"
-      - "TypeScript"
-      - "GitLab"
 
   - company: "Icon Americas S.A."
     role: "Full-Stack Application Developer"
