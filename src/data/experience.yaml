@@ -5,7 +5,7 @@ jobs:
   - company: "BDG, S.A."
     role: "Fullstack Developer"
     location: "Guatemala City, Guatemala"
-    startDate: "2026-05"
+    startDate: "2026-04"
     endDate: null
     current: true
     description:
