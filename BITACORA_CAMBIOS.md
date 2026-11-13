@@ -1,0 +1,149 @@
+# 📓 Bitácora de cambios — drkjavier.dev
+
+> **Para modelos de IA (y personas):** registra aquí **cada** cambio, ajuste o corrección que hagas al proyecto.
+> Este documento es la memoria a largo plazo del repo: léelo **antes** de tocar nada y actualízalo **después** de cada cambio.
+> Documento complementario a `AI_UPDATE_GUIDE.md` (reglas de contenido) y `README.md` (setup).
+
+---
+
+## 🔄 Cómo usar esta bitácora
+
+### Antes de empezar
+1. Lee las **últimas entradas** del [Registro de cambios](#-registro-de-cambios) para no repetir trabajo ni reabrir algo ya resuelto.
+2. Revisa [Estado conocido y pendientes](#-estado-conocido-y-pendientes): ahí están los problemas abiertos y las decisiones ya tomadas.
+3. Revisa [Contexto operativo](#-contexto-operativo) (comandos, URLs, cuenta de Vercel, fuentes de verdad).
+
+### Después de terminar
+1. Ejecuta el checklist (`AI_UPDATE_GUIDE.md` → *Checklist de Validación*).
+2. Haz commit con mensaje convencional (ver abajo).
+3. **Añade una entrada nueva arriba de todo** en *Registro de cambios*.
+4. Si el cambio altera flujos, comandos o pendientes, actualiza también *Contexto operativo* / *Estado conocido*.
+
+### Formato de mensaje de commit (Convención Commits)
+```
+tipo(alcance): descripción corta en español
+```
+Tipos: `feat` (funcionalidad), `fix` (corrección), `docs` (documentación), `style` (estilo), `refactor` (reestructuración sin cambiar comportamiento), `test`, `chore` (deploy, dependencias, config).
+
+Ejemplos reales de este repo:
+- `fix(experience): BDG inicia en abril 2026`
+- `feat(projects): refleja proyectos de GitHub en la seccion de proyectos destacados`
+
+### Plantilla de entrada (copiar y pegar)
+
+```markdown
+### 📅 YYYY-MM-DD — <tipo>(<alcance>): <título corto>
+**Autor:** modelo/persona · **Commit:** `<hash>` (rama `main`)
+**Qué cambió:**
+- Archivo → qué se modificó
+**Por qué:** motivo o dato fuente que lo justifica
+**Cómo se verificó:** build / inspección del HTML / URL en vivo / etc.
+**Deploy:** producción ✅ (URL) | pendiente | no aplica
+**Impacto / pendientes:** efectos secundarios o tareas abiertas
+```
+
+---
+
+## 🧭 Contexto operativo
+
+| Aspecto | Valor |
+|---|---|
+| Repo | `https://github.com/drkjavier/drkjavier.dev` (rama `main`) |
+| Framework | Astro 5 + Tailwind + React, `output: static`, adapter `@astrojs/vercel` |
+| Build | `npm run build` → `dist/` (y `.vercel/output/`) |
+| Preview local | `npm run preview` / `npm run dev` |
+| Deploy | `npx vercel --prod --yes` (requiere `npx vercel link` previo; `.vercel/` está en `.gitignore`) |
+| Proyecto Vercel | team `dereck-curtis-projects` → proyecto **`drkjavier-dev`** |
+| URL en producción | **https://drkjavier-dev.vercel.app** |
+| Dominio custom | `drkjavier.dev` → ver *Estado conocido* (sin DNS) |
+| CI/CD automático | **No hay** GitHub Actions conectadas: el push a `main` **no** despliega solo; hay que correr `vercel --prod` |
+| Auth Vercel CLI | `~/.local/share/com.vercel.cli/auth.json` (usuario `drkjavier`) |
+| Datos del sitio | `src/data/*.yaml` ← única fuente editable del contenido |
+| Fuente original | CV PDF en `C:\Users\user\Documents\dereck-curtis\Dereck_Curtis_Resume_{EN,ES}_v4.pdf` (⚠️ ver pendientes) |
+| Guía de contenido | `AI_UPDATE_GUIDE.md` |
+
+### Comandos rápidos
+```bash
+npm run build                                   # build y validación
+npx vercel --prod --yes                         # deploy a producción
+curl -s https://drkjavier-dev.vercel.app | grep -o "Patrón a verificar"
+git log --oneline -10                           # historial resumido
+python3 -c "import yaml;print(yaml.safe_load(open('src/data/experience.yaml'))['jobs'][0])"   # validar YAML
+```
+
+---
+
+## ⚠️ Estado conocido y pendientes
+
+| # | Estado | Detalle | Última revisión |
+|---|---|---|---|
+| 1 | 🔴 Abierto | **CV PDF desactualizado**: `Dereck_Curtis_Resume_EN_v4.pdf` y `_ES_v4.pdf` dicen `BDG, S.A. — April 2015 – Present`. El dato real (según el dueño) es **Abril 2026 – Actualidad**. No hay fuente editable en el repo (solo PDFs) → pendiente corregir el PDF o regenerarlo. | 2026-11-12 |
+| 2 | 🔴 Abierto | **Dominio `drkjavier.dev` no resuelve**: NXDOMAIN global (sin NS en el registry `.dev`) y 0 dominios en Vercel. La URL operativa es `drkjavier-dev.vercel.app`. Para el custom domain: registrar/apuntar DNS + `vercel domains add` / añadir dominio al proyecto. | 2026-11-12 |
+| 3 | 🟡 Decisión | **`src/components/Projects.astro` fue modificado** (regla "NO MODIFICAR componentes" de `AI_UPDATE_GUIDE.md`) para renderizar el enlace opcional `link` ("Ver en GitHub ↗"). Si se quiere volver a la regla estricta: revertir ese archivo; `src/data/projects.yaml` sigue siendo válido. | 2026-11-12 |
+| 4 | 🟡 Decisión | Se agregó el campo opcional `link` a los proyectos YAML (antes no existía). Solo se renderiza si está presente; el proyecto de Ericsson no lo lleva. | 2026-11-12 |
+| 5 | 🟢 Resuelto | Períodos laborales corregidos: BDG `2026-04 → Actualidad` (primer puesto), Ericsson `2015-09 → 2026-02`, Icon Americas `2013-09 → 2015-09`. | 2026-11-12 |
+| 6 | ℹ️ Info | Repos **privados** (no enlazar en el sitio): `beautify-hub`. Repos **sin remoto**: `bean-auditor-backend`, `spring-kafka-app`, `vertx-*`, `tickets`. Duplicado: `it-tickets-app` ≈ `it-tickets` (se usa `it-tickets`). | 2026-11-12 |
+| 7 | ℹ️ Info | `tuipr` en el portafolio es un **fork** (`fork: true` en la API de GitHub); se presenta como "Open Source (fork)" y su tap es `homebrew-tuipr`. | 2026-11-12 |
+
+---
+
+## 📋 Reglas de registro
+
+1. **No borres entradas anteriores**: la bitácora es un historial append-only (ordena de más reciente a más antiguo).
+2. **Una entrada por cambio efectivo** (un commit o un lote relacionado). Si haces varios commits en una sesión, entradas separadas o una entrada con varios hashes.
+3. Registra también los **no-cambios relevantes**: "no se modificó X porque…", "se descartó Y porque…".
+4. Todo lo que un modelo futuro necesite saber y **no** esté en el código debe quedar aquí (decisiones, URLs, datos fuente, pendientes).
+5. Si actualizas *Estado conocido*, cambia el estado (`🔴` → `🟢`) y la fecha; no borres la fila.
+6. Mantén este archivo en **español** (idioma de los docs del proyecto) y en la raíz del repo.
+
+---
+
+## 📅 Registro de cambios
+
+### 📅 2026-11-12 — feat(projects): proyectos de GitHub en el portafolio
+**Autor:** modelo (opencode/go) · **Commit:** `d762310` (rama `main`)
+**Qué cambió:**
+- `src/data/projects.yaml` → de 1 a 8 proyectos; se añadieron 7 con `link` a GitHub: `drkjavier.dev`, `IT Tickets`, `DC Rentals`, `Bean Auditor App`, `tuipr + Homebrew tap`, `Backend & Cloud Labs (Java)`, `GitHub Actions & Automation` (descripciones ES/EN, highlights y tecnologías verificadas contra los `package.json`/README reales).
+- `src/components/Projects.astro` → renderiza enlace opcional `Ver en GitHub ↗` / `View on GitHub ↗` si el proyecto tiene `link` (ver pendiente #3).
+**Por qué:** el dueño pidió reflejar en el portfolio los proyectos alojados en GitHub (`github.com/drkjavier`, 28 repos públicos).
+**Cómo se verificó:** YAML válido; build OK; 7 enlaces con HTTP 200; HTML de producción contiene 8 tarjetas y 7 enlaces (ES y EN).
+**Deploy:** producción ✅ https://drkjavier-dev.vercel.app
+**Impacto / pendientes:** se tocó un componente (pendiente #3); se excluyeron repos boilerplate/legacy (ver #6).
+
+### 📅 2026-11-12 — fix(experience): BDG inicia en abril 2026
+**Autor:** modelo (opencode/go) · **Commit:** `c6483e8` (rama `main`)
+**Qué cambió:**
+- `src/data/experience.yaml` → `BDG, S.A.` `startDate: "2026-05"` → `"2026-04"` (sigue `endDate: null`, `current: true`, primer puesto).
+**Por qué:** ajuste solicitado por el dueño (periodo correcto: abril 2026).
+**Cómo se verificó:** build OK; ES `Abr 2026 — Actualidad`, EN `Apr 2026 — Present`; verificado por `curl` en producción.
+**Deploy:** producción ✅ https://drkjavier-dev.vercel.app
+**Impacto / pendientes:** el PDF del CV sigue desactualizado (pendiente #1).
+
+### 📅 2026-11-12 — fix(experience): corrige periodos laborales
+**Autor:** modelo (opencode/go) · **Commit:** `560c63d` (rama `main`)
+**Qué cambió:**
+- `src/data/experience.yaml` → `BDG, S.A.` pasó de `2015-04 / current: false` a `2026-05 / current: true` y se movió al **primer lugar** de la lista; Ericsson quedó `2015-09 → 2026-02`; Icon Americas `2013-09 → 2015-09`.
+**Por qué:** el PDF mostraba `BDG — April 2015 – Present`, lo que se solapaba con Ericsson; el dato correcto es que el dueño labora en BDG desde 2026.
+**Cómo se verificó:** YAML validado con `yaml.safe_load`; orden BDG → Ericsson → Icon en el HTML construido.
+**Deploy:** producción ✅ https://drkjavier-dev.vercel.app
+**Impacto / pendientes:** superado parcialmente por `c6483e8` (fecha final: abril 2026).
+
+### 📅 2026-11-12 — chore: linkeo de Vercel y primer deploy del sitio
+**Autor:** modelo (opencode/go)
+**Qué cambió:**
+- `npx vercel link --yes --project drkjavier-dev` → creó `.vercel/project.json` (ignorado por git).
+- Primeros deploys a producción desde CLI (antes no había link en el repo).
+**Por qué:** el repo no estaba linkeado y el deploy se hacía de forma manual/desconocida.
+**Cómo se verificó:** `vercel inspect` → `target: production`, `status: Ready`; sitio responde 200.
+**Deploy:** producción ✅ https://drkjavier-dev.vercel.app
+**Impacto / pendientes:** el `deploy.sh` del repo usa `vercel` global (no `npx`); documentado arriba el comando real usado.
+
+### 📅 2026-11-12 — docs: guías iniciales (README + AI_UPDATE_GUIDE)
+**Autor:** modelo (opencode/go) · **Commit:** `58376b6` (*Initial commit: Portfolio drkjavier.dev*)
+**Qué cambió:** estructura base del portafolio: `src/data/*.yaml`, componentes, layouts, páginas, `README.md` e `AI_UPDATE_GUIDE.md`.
+**Deploy:** n/a (commit inicial)
+**Impacto / pendientes:** creó las reglas "no modificar componentes" hoy parcialmente flexibilizadas (pendiente #3).
+
+---
+
+*Última actualización de esta bitácora: 2026-11-12.*

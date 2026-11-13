@@ -69,6 +69,7 @@ drkjavier.dev/
 2. **Extraer** la información relevante
 3. **Actualizar** los archivos YAML en `src/data/`
 4. **NO** modificar componentes, layouts ni estilos (a menos que se solicite explícitamente)
+5. **Registrar** el cambio en [`BITACORA_CAMBIOS.md`](BITACORA_CAMBIOS.md) (plantilla y contexto operativo ahí mismo) y hacer deploy con `npx vercel --prod --yes`
 
 ### Formato de los archivos YAML
 

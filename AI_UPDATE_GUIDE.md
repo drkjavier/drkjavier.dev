@@ -47,6 +47,9 @@ Actualizar **solo** los archivos en `src/data/` siguiendo los formatos especific
 ### Paso 4: Verificar
 Ejecutar `npm run build` para asegurar que no hay errores.
 
+### Paso 5: Registrar en la bitácora de cambios
+Añadir una entrada al inicio de [`BITACORA_CAMBIOS.md`](BITACORA_CAMBIOS.md) con el formato de la plantilla (qué cambió, por qué, cómo se verificó, deploy e impacto/pendientes). Ese documento es la memoria del proyecto para cualquier modelo o persona que trabaje aquí: léelo antes de empezar y actualízalo antes de terminar.
+
 ## 📝 Formato de Archivos YAML
 
 ### profile.yaml
@@ -344,6 +347,14 @@ hero:
 - Los nombres de tecnologías y categorías NO van aquí
 - Cada texto debe tener versiones `es` y `en`
 - Generalmente no necesitas modificar este archivo a menos que cambies la estructura del portafolio
+
+## 📓 Bitácora de cambios
+
+**`BITACORA_CAMBIOS.md`** (raíz del repo) registra cada cambio hecho al proyecto y el contexto operativo (comandos de build/deploy, URLs, fuentes de verdad, pendientes abiertos).
+
+- Léela **antes** de modificar cualquier cosa y añade tu entrada **después** de terminar.
+- No borres entradas anteriores: es un historial de más reciente a más antiguo.
+- Si tu cambio altera un flujo, un comando o cierra un pendiente, actualiza también las secciones *Contexto operativo* y *Estado conocido y pendientes*.
 
 ## 🚫 Reglas Importantes
 
