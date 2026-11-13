@@ -50,9 +50,10 @@ drkjavier.dev/
 │   │   └── en/
 │   │       └── index.astro  ← Página en inglés
 │   └── styles/
-│       ├── global.css
+│       ├── global.css              ← importa tema + experiments.css
+│       ├── experiments.css         ← ajustes descartables (ver EXPERIMENTOS_ESTILO.md)
 │       └── themes/
-│           └── theme-corporate.css  ← Tema actual
+│           └── theme-corporate.css  ← Tema actual (contenido: "Terminal Dark")
 ├── public/
 │   └── favicon.svg
 ├── astro.config.mjs
@@ -175,7 +176,9 @@ Para migrar a un nuevo estilo visual:
    ```
 
 Los temas disponibles:
-- `theme-corporate.css` — Corporativo/serio (actual)
+- `theme-corporate.css` — **Terminal Dark** (actual): fondo `#0d1117`, superficies `#161b22`, primario verde `#3fb950`, acento ámbar `#d29922`, tipografía JetBrains Mono. ⚠️ El archivo conserva el nombre `corporate`, pero su contenido es el tema oscuro terminal desde 2026-11-13.
+
+> Los experimentos visuales descartables (glow en tarjetas, scanlines CRT) viven en `src/styles/experiments.css`; mapa completo y cómo revertirlos: [`EXPERIMENTOS_ESTILO.md`](EXPERIMENTOS_ESTILO.md).
 
 ## 🌐 Idiomas
 

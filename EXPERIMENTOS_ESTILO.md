@@ -6,11 +6,12 @@
 
 | Dato | Valor |
 |---|---|
-| Rama | **`experiment/styles`** (local, **sin push**) |
-| Commit base (antes de los experimentos) | **`00a5948`** (`docs: agrega bitacora de cambios…`) = mismo contenido que `origin/main` |
-| Producción | intacta (https://drkjavier-dev.vercel.app sirve `main`) |
+| Origen | rama `experiment/styles` → **fusionada en `main` (merge `9e4fba0`, 2026-11-13)** y **desplegada en producción** |
+| Commit base (antes de los experimentos) | `00a5948` (`docs: agrega bitacora de cambios…`) |
+| Producción | ✅ https://drkjavier-dev.vercel.app sirve estos experimentos (tema Terminal Dark) |
+| Siguiente iteración de estilo | rama `experiment/styles-v2` (propuesta en `PROPUESTA_ESTILO_V2.md`) |
 | Dev server | `http://localhost:4321` (`npm run dev`) |
-| Última actualización del mapa | 2026-11-12 |
+| Última actualización del mapa | 2026-11-13 |
 
 ---
 

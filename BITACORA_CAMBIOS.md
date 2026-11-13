@@ -101,6 +101,18 @@ python3 -c "import yaml;print(yaml.safe_load(open('src/data/experience.yaml'))['
 
 ## 📅 Registro de cambios
 
+### 📅 2026-11-13 — docs: guías actualizadas al tema Terminal Dark y nueva rama de experimentos
+**Autor:** modelo (pi/mimo-v2.6-flash) · **Commit:** `da693bb` (rama `main`)
+**Qué cambió:**
+- `README.md` → estructura (aparece `experiments.css`) y sección *Cambiar tema*: el tema actual es **Terminal Dark** (con nota de que el archivo sigue llamándose `theme-corporate.css`), enlace a `EXPERIMENTOS_ESTILO.md`.
+- `AI_UPDATE_GUIDE.md` → nota *🎨 Tema visual actual* (tokens, archivos y "no cambiar salvo petición explícita") + `experiments.css` en el árbol.
+- `EXPERIMENTOS_ESTILO.md` → cabecera actualizada: rama `experiment/styles` ya fusionada (`9e4fba0`) y desplegada.
+- Se crea la rama **`experiment/styles-v2`** para la próxima iteración de estilo, con su propuesta en `PROPUESTA_ESTILO_V2.md`.
+**Por qué:** las guías seguían describiendo el tema "corporate/serio" (azul, Inter), lo que confundiría a un modelo futuro; y se quería un espacio aislado para jugar con el estilo sin tocar `main`.
+**Cómo se verificó:** `grep -i corporate` sobre los docs → solo queda la nota explicativa del nombre del archivo; build sin cambios de estilo (docs puros).
+**Deploy:** no aplica (solo docs; producción intacta con el tema del commit `9e4fba0`).
+**Impacto / pendientes:** `experiment/styles-v2` NO debe desplegarse sin decisión explícita; la propuesta de estilo está en la rama, no en `main`.
+
 ### 📅 2026-11-13 — style(theme): tema Terminal Dark pasa de `experiment/styles` a `main`
 **Autor:** modelo (pi/mimo-v2.6-flash) · **Commit:** `9e4fba0` (merge, rama `main`)
 **Qué cambió:**

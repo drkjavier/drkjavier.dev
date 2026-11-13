@@ -20,9 +20,15 @@ drkjavier.dev/
 │   ├── layouts/           ← ⚠️ NO MODIFICAR (layout principal)
 │   ├── pages/             ← ⚠️ NO MODIFICAR (rutas)
 │   └── styles/            ← 🔧 MODIFICAR SOLO PARA CAMBIOS DE ESTILO
+│       ├── global.css         # Importa tema + experiments.css
+│       ├── experiments.css    # Ajustes descartables (glow, scanlines)
 │       └── themes/            # Temas visuales (CSS variables)
 └── public/                # Assets estáticos (favicon, imágenes)
 ```
+
+> **🎨 Tema visual actual:** *Terminal Dark* — fondo `#0d1117`, superficies `#161b22`, primario verde `#3fb950`, acento ámbar `#d29922`, tipografía **JetBrains Mono**.
+> Está definido en `src/styles/themes/theme-corporate.css` (**el archivo sigue llamándose `corporate`**, solo cambió su contenido) más los ajustes de `src/styles/experiments.css`.
+> Mapeo de experimentos y cómo revertirlos: [`EXPERIMENTOS_ESTILO.md`](EXPERIMENTOS_ESTILO.md). **No cambiar el tema salvo petición explícita.**
 
 ## 🔄 Flujo de Actualización
 
