@@ -50,10 +50,12 @@ drkjavier.dev/
 │   │   └── en/
 │   │       └── index.astro  ← Página en inglés
 │   └── styles/
-│       ├── global.css              ← importa tema + experiments.css
-│       ├── experiments.css         ← ajustes descartables (ver EXPERIMENTOS_ESTILO.md)
+│       ├── global.css                ← 100% genérico: importa los 2 temas
+│       ├── experiments-terminal.css  ← efectos del tema Terminal (autocontenido)
+│       ├── experiments-aurora.css    ← efectos del tema Aurora (autocontenido)
 │       └── themes/
-│           └── theme-corporate.css  ← Tema actual (contenido: "Terminal Dark")
+│           ├── theme-terminal.css    ← Terminal Dark (DEFAULT)
+│           └── theme-aurora.css      ← Aurora Glass (alterno)
 ├── public/
 │   └── favicon.svg
 ├── astro.config.mjs
@@ -162,23 +164,30 @@ degrees:
 
 ## 🎨 Cambiar tema
 
-Para migrar a un nuevo estilo visual:
+**El switch es un solo nombre** en `src/layouts/Layout.astro`:
 
-1. Crear un nuevo archivo en `src/styles/themes/` (ej: `theme-modern.css`)
-2. Copiar la estructura de variables CSS del tema actual
-3. Modificar los valores de las variables
-4. Cambiar el import en `src/styles/global.css`:
-   ```css
-   /* Antes */
-   @import './themes/theme-corporate.css';
-   /* Después */
-   @import './themes/theme-modern.css';
-   ```
+```astro
+<html lang={lang} data-theme="terminal">   <!-- ← cambia `terminal` ↔ `aurora` -->
+```
 
-Los temas disponibles:
-- `theme-corporate.css` — **Terminal Dark** (actual): fondo `#0d1117`, superficies `#161b22`, primario verde `#3fb950`, acento ámbar `#d29922`, tipografía JetBrains Mono. ⚠️ El archivo conserva el nombre `corporate`, pero su contenido es el tema oscuro terminal desde 2026-11-13.
+Ese atributo activa los tokens **y** los efectos y la tipografía del tema (cada tema es autocontenido: sus efectos están en su archivo `experiments-*.css`, importado desde el propio tema). `global.css` no contiene ninguna regla de tema.
 
-> Los experimentos visuales descartables (glow en tarjetas, scanlines CRT) viven en `src/styles/experiments.css`; mapa completo y cómo revertirlos: [`EXPERIMENTOS_ESTILO.md`](EXPERIMENTOS_ESTILO.md).
+**Temas disponibles:**
+
+| `data-theme` | Archivo | Estilo | Tipografía |
+|---|---|---|---|
+| `terminal` (default) | `theme-terminal.css` + `experiments-terminal.css` | Oscuro consola: fondo `#0d1117`, verde `#3fb950`, ámbar `#d29922`, scanlines CRT | JetBrains Mono |
+| `aurora` | `theme-aurora.css` + `experiments-aurora.css` | Aurora Glass: fondo `#08090d`, indigo `#4f46e5`, cian `#22d3ee`, tarjetas de vidrio | Inter |
+
+**Botón de tema (solo desarrollo):** con `npm run dev` aparece una pastilla `Terminal | Aurora` en la navbar para previsualizar en vivo (persiste en `localStorage`, clave `theme`). **En producción el botón no se emite** (`import.meta.env.DEV`) y manda el valor definido en `data-theme`.
+
+**Agregar un tema nuevo:**
+1. Crear `src/styles/themes/theme-<nombre>.css` (+ `src/styles/experiments-<nombre>.css` si lleva efectos) copiando la estructura de uno existente (selectors `html[data-theme='<nombre>']`).
+2. Importarlo en `global.css` (`@import './themes/theme-<nombre>.css';`).
+3. Añadir el nombre al catálogo de `src/components/ThemeToggle.astro` y al script dev de `Layout.astro`.
+4. Activarlo cambiando `data-theme` en `Layout.astro`.
+
+> Mapa de experimentos y cómo revertirlos: [`EXPERIMENTOS_ESTILO.md`](EXPERIMENTOS_ESTILO.md) · Propuesta del tema Aurora: [`PROPUESTA_ESTILO_V2.md`](PROPUESTA_ESTILO_V2.md)
 
 ## 🌐 Idiomas
 

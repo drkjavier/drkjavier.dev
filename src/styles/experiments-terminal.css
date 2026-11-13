@@ -1,11 +1,11 @@
 /* ============================================================
-   EXPERIMENTOS DE ESTILO — rama `experiment/styles`
+   EXPERIMENTOS — TEMA TERMINAL (v1)     html[data-theme='terminal']
    ------------------------------------------------------------
    ⚠️  Todo lo que vive en este archivo es DESCARTABLE.
-   Revertir el "paso 2" completo:
+   Se importa SOLO desde `themes/theme-terminal.css` (autocontenido).
+   Revertir el estilo v1 completo:
        1) borrar este archivo
-       2) borrar la línea  @import './experiments.css';  de global.css
-   (o directamente: git revert <commit del paso 2>)
+       2) borrar la línea @import de theme-terminal.css
    Mapeo completo de cambios y reversiones: EXPERIMENTOS_ESTILO.md
    ============================================================ */
 
@@ -13,7 +13,7 @@
    PASO 2a — Tarjetas: borde tenue + glow verde al hover
    Afecta a: .card (Projects, Experience, Contact, …)
    ------------------------------------------------------------ */
-.card {
+html[data-theme='terminal'] .card {
   border-color: #21262d;
   box-shadow:
     0 0 0 1px rgba(63, 185, 80, 0.06),
@@ -23,7 +23,7 @@
     border-color var(--transition-normal);
 }
 
-.card:hover {
+html[data-theme='terminal'] .card:hover {
   border-color: rgba(63, 185, 80, 0.45);
   box-shadow:
     0 0 0 1px rgba(63, 185, 80, 0.35),
@@ -35,7 +35,7 @@
    overlay fijo, sin interacción (pointer-events: none)
    opacidad 0.025 → si se ve mucho, bajar a 0.015 o eliminar
    ------------------------------------------------------------ */
-body::after {
+html[data-theme='terminal'] body::after {
   content: '';
   position: fixed;
   inset: 0;
@@ -48,4 +48,21 @@ body::after {
     transparent 1px,
     transparent 3px
   );
+}
+
+/* ------------------------------------------------------------
+   Contraste de texto sobre verde brillante
+   (--color-primary: #3fb950 → el texto blanco no llega a 4.5:1;
+   con texto #06120a se llega a ≈9:1).
+   Estas reglas SOLO aplican a este tema: si el primary cambia a
+   un tono oscuro dentro de este mismo tema, eliminarlas aquí.
+   ------------------------------------------------------------ */
+html[data-theme='terminal'] .btn-primary,
+html[data-theme='terminal'] .btn-primary:hover {
+  color: #06120a;
+}
+
+/* Botón activo del selector de idioma (LanguageToggle) */
+html[data-theme='terminal'] button[style*="--color-primary"] {
+  color: #06120a !important;
 }

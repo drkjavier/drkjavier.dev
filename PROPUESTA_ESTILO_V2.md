@@ -1,13 +1,13 @@
 # ✨ Propuesta de estilo v2 — **Aurora Glass**
 
-> **✅ ESTADO: IMPLEMENTADO en esta rama (opción A, pasos 1–4).**
-> Ver *Registro de cambios* en `BITACORA_CAMBIOS.md` para el commit y la verificación.
-> ¿Volver al estilo v1 (Terminal Dark)? → `git revert` de los commits de estilo de esta rama
-> o seguir el *Revertir* de cada paso (abajo).
-> Rama: **`experiment/styles-v2`** (parte de `main` = tema *Terminal Dark* actual).
-> Documento de **propuesta**: aquí NO está implementado todavía. Si se aprueba, se implementa en
-> pasos (abajo) y se registra en `BITACORA_CAMBIOS.md`.
-> Mapa del estilo actual (v1, desplegado): `EXPERIMENTOS_ESTILO.md`.
+> **✅ ESTADO: IMPLEMENTADO como tema ALTERNATIVO.**
+> - Tema default del sitio: **Terminal Dark** → el switch es UN nombre:
+>   `src/layouts/Layout.astro` → `<html data-theme="terminal">` (`terminal` ↔ `aurora`).
+> - Aurora vive en `src/styles/themes/theme-aurora.css` + `src/styles/experiments-aurora.css` (autocontenido).
+> - En desarrollo hay un botón en la navbar (`Terminal | Aurora`) para previsualizar en vivo;
+>   **no se emite en producción** (`import.meta.env.DEV`) y allí manda el valor definido en `data-theme`.
+> - Detalles de implementación y verificación: *Registro de cambios* en `BITACORA_CAMBIOS.md`.
+> - Mapa del estilo v1 (Terminal): `EXPERIMENTOS_ESTILO.md`.
 
 ## 🎯 Concepto
 
@@ -49,12 +49,12 @@ El CTA usa `--gradient-brand-solid` (`135deg, #4f46e5 → #4338ca`) para mantene
 
 ## 🧱 Efectos (4 pasos, cada uno revertible por separado)
 
-| # | Paso | Archivo | Revertir |
+| # | Paso | Archivo | Estado |
 |---|---|---|---|
-| 1 | Nuevo tema con los tokens de arriba | `src/styles/themes/theme-aurora.css` **(nuevo)** + cambiar 1 línea de import en `global.css` | volver el import a `theme-corporate.css` |
-| 2 | Aurora de fondo + tarjetas glass + H1 en degradado + hover lift; **apaga los scanlines** (`body::after { display:none }`) y el glow verde | `src/styles/experiments-v2.css` **(nuevo)** + 1 línea de import | borrar archivo + import |
-| 3 | Tipografía: Inter para cuerpo, Mono como acento | `tailwind.config.mjs` + `src/layouts/Layout.astro` (Google Fonts) | `git revert` del commit |
-| 4 | Micro-polish: sticky nav con blur, `:focus-visible` indigo, `prefers-reduced-motion` para la deriva de las auroras | `experiments-v2.css` | `git revert` del commit |
+| 1 | Tema con los tokens de arriba (scope `html[data-theme='aurora']`, importa sus efectos) | `src/styles/themes/theme-aurora.css` | ✅ |
+| 2 | Aurora de fondo + tarjetas glass + H1 en degradado + hover lift (los scanlines/glow del v1 quedan solo en el tema terminal) | `src/styles/experiments-aurora.css` | ✅ |
+| 3 | Tipografía: Inter para cuerpo, Mono como acento — **ambas fuentes se cargan siempre** (`Layout.astro`) y cada tema elige con `--font-family-base` (el switch no toca `tailwind.config.mjs` ni fuentes) | `tailwind.config.mjs` + `src/layouts/Layout.astro` | ✅ |
+| 4 | Micro-polish: navbar de vidrio, `:focus-visible` (genérico, en `global.css`), `prefers-reduced-motion` | `experiments-aurora.css` + `global.css` | ✅ |
 
 **Fondo aurora (paso 2):** 3 `radial-gradient` de gran radio con opacidad ≤ .35 —
 indigo `#6366f1` arriba-izq., cian `#22d3ee` arriba-der., esmeralda `#10b981` abajo —

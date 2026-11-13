@@ -20,15 +20,19 @@ drkjavier.dev/
 │   ├── layouts/           ← ⚠️ NO MODIFICAR (layout principal)
 │   ├── pages/             ← ⚠️ NO MODIFICAR (rutas)
 │   └── styles/            ← 🔧 MODIFICAR SOLO PARA CAMBIOS DE ESTILO
-│       ├── global.css         # Importa tema + experiments.css
-│       ├── experiments.css    # Ajustes descartables (glow, scanlines)
-│       └── themes/            # Temas visuales (CSS variables)
+│       ├── global.css              # 100% genérico (importa los 2 temas)
+│       ├── experiments-terminal.css# Efectos del tema Terminal (autocontenido)
+│       ├── experiments-aurora.css  # Efectos del tema Aurora (autocontenido)
+│       └── themes/                 # Temas (tokens CSS + import de sus efectos)
+│           ├── theme-terminal.css  # Terminal Dark (DEFAULT)
+│           └── theme-aurora.css    # Aurora Glass (alterno)
 └── public/                # Assets estáticos (favicon, imágenes)
 ```
 
-> **🎨 Tema visual actual:** *Terminal Dark* — fondo `#0d1117`, superficies `#161b22`, primario verde `#3fb950`, acento ámbar `#d29922`, tipografía **JetBrains Mono**.
-> Está definido en `src/styles/themes/theme-corporate.css` (**el archivo sigue llamándose `corporate`**, solo cambió su contenido) más los ajustes de `src/styles/experiments.css`.
-> Mapeo de experimentos y cómo revertirlos: [`EXPERIMENTOS_ESTILO.md`](EXPERIMENTOS_ESTILO.md). **No cambiar el tema salvo petición explícita.**
+> **🎨 Tema visual actual:** **Terminal Dark** (default) — fondo `#0d1117`, superficies `#161b22`, primario verde `#3fb950`, acento ámbar `#d29922`, tipografía **JetBrains Mono**.
+> **Switch de tema = UN nombre:** `src/layouts/Layout.astro` → `<html data-theme="terminal">` (`terminal` ↔ `aurora`). Cada tema arrastra sus tokens, efectos y tipografía (ver README → *Cambiar tema*).
+> Mapeo de experimentos y cómo revertirlos: [`EXPERIMENTOS_ESTILO.md`](EXPERIMENTOS_ESTILO.md) · Tema alterno: [`PROPUESTA_ESTILO_V2.md`](PROPUESTA_ESTILO_V2.md).
+> **No cambiar el tema salvo petición explícita.** (En desarrollo hay un botón en la navbar para previsualizar; no existe en producción.)
 
 ## 🔄 Flujo de Actualización
 

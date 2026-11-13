@@ -15,6 +15,27 @@
 
 ---
 
+## ⚠️ Renombres y nuevo mecanismo de switch (2026-11-13, rama `experiment/styles-v2`)
+
+Los nombres de archivo cambiaron (el contenido es el mismo) y el switch de temas ya no es un import en `global.css`:
+
+| Nombre histórico (commits abajo) | Nombre actual |
+|---|---|
+| `src/styles/themes/theme-corporate.css` | **`src/styles/themes/theme-terminal.css`** |
+| `src/styles/experiments.css` | **`src/styles/experiments-terminal.css`** |
+| `src/styles/experiments-v2.css` | **`src/styles/experiments-aurora.css`** |
+
+- **Switch = UN nombre:** `src/layouts/Layout.astro` → `<html data-theme="terminal">` (`terminal` ↔ `aurora`).
+- Cada tema es **autocontenido**: importa sus propios efectos desde su archivo de tema.
+- Todas las reglas de este mapa están ahora **scopeadas** a `html[data-theme='terminal']` (y las de Aurora a `html[data-theme='aurora']`) para que ambos puedan convivir en el bundle.
+- Las reglas de contraste sobre verde (`#06120a`, antes en `global.css`) se movieron a `experiments-terminal.css`.
+- En desarrollo hay botón `Terminal | Aurora` en la navbar (no existe en producción).
+- Las tablas de abajo documentan los commits **históricos**: léelas con los nombres viejos en mente.
+
+---
+
+---
+
 ## 📋 Resumen de experimentos
 
 | # | Experimento | Commit | Archivos tocados | Revertir |

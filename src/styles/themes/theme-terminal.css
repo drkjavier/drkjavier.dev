@@ -1,13 +1,19 @@
 /* ============================================
    THEME: Terminal Dark (modo consola)
-   Cambiar el import en global.css para migrar de tema
+   — Tema DEFAULT del sitio (el nombre default vive
+     en src/layouts/Layout.astro → <html data-theme="terminal">)
+   — Autocontenido: arrastra sus propios efectos.
+   Cambiar el nombre en Layout.astro para migrar de tema.
    ============================================ */
+@import '../experiments-terminal.css';
 
-:root {
+html[data-theme='terminal'] {
   /* Primary palette */
   --color-primary: #3fb950;
   --color-primary-light: #56d364;
   --color-primary-dark: #0f3d24;
+  /* Texto sobre primario (verde brillante → oscuro, ≈9:1) */
+  --color-on-primary: #06120a;
 
   /* Secondary palette */
   --color-secondary: #8b949e;
@@ -31,12 +37,17 @@
   --color-border: #30363d;
   --color-border-light: #21262d;
 
+  /* Marca */
+  --gradient-brand: linear-gradient(90deg, #56d364 0%, #e3b341 100%);
+  --gradient-brand-solid: linear-gradient(135deg, #3fb950 0%, #2ea043 100%);
+
   /* Spacing */
   --section-padding: 5rem;
   --container-max-width: 1200px;
 
   /* Typography */
   --font-family-base: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-family-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
   --font-size-hero: 3rem;
   --font-size-h2: 2rem;
   --font-size-h3: 1.5rem;

@@ -9,7 +9,11 @@ const { lang = 'es' } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang={lang}>
+<!--
+  🎨 SWITCH DE TEMAS: cambia SOLO el valor de `data-theme` (terminal | aurora)
+  y cambia todo el estilo (tokens + efectos + tipografía). Ver global.css.
+-->
+<html lang={lang} data-theme="terminal">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -19,6 +23,19 @@ const { lang = 'es' } = Astro.props;
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
     <title>Dereck Curtis — Senior Software Engineer</title>
+    {import.meta.env.DEV && (
+      <script is:inline>
+        {/* Solo desarrollo: aplica el tema elegido con el botón de la navbar.
+            En producción este script no se emite → manda el valor definido
+            en data-theme y no se toca localStorage. */}
+        try {
+          var t = localStorage.getItem('theme');
+          if (t === 'terminal' || t === 'aurora') {
+            document.documentElement.setAttribute('data-theme', t);
+          }
+        } catch (e) {}
+      </script>
+    )}
   </head>
   <body class="min-h-screen">
     <slot />

@@ -1,16 +1,20 @@
 /* ============================================
    THEME: Aurora Glass (v2)
-   — Fondo casi negro con auroras, tarjetas de
-     vidrio y degradado indigo → cian.
-   Cambiar el import en global.css para migrar
-   de tema. Mapeo completo: PROPUESTA_ESTILO_V2.md
+   — Tema ALTERNATIVO: activar con
+       <html lang="…" data-theme="aurora">   (Layout.astro)
+     o con el botón de tema (solo visible en `npm run dev`).
+   — Autocontenido: arrastra sus propios efectos.
+   Propuesta completa: PROPUESTA_ESTILO_V2.md
    ============================================ */
+@import '../experiments-aurora.css';
 
-:root {
+html[data-theme='aurora'] {
   /* Primary palette (solidos: botones con texto blanco ≥ 4.5:1) */
   --color-primary: #4f46e5;
   --color-primary-light: #818cf8;
   --color-primary-dark: #3730a3;
+  /* Texto sobre primario (indigo → blanco, 6.29:1) */
+  --color-on-primary: #ffffff;
 
   /* Secondary palette */
   --color-secondary: #a5b4fc;

@@ -1,14 +1,11 @@
 /* ============================================================
-   EXPERIMENTOS v2 — AURORA GLASS   (rama experiment/styles-v2)
+   EXPERIMENTOS — TEMA AURORA GLASS (v2)   html[data-theme='aurora']
    ------------------------------------------------------------
    ⚠️  Todo lo que vive en este archivo es DESCARTABLE.
+   Se importa SOLO desde `themes/theme-aurora.css` (autocontenido).
    Revertir el estilo v2 completo:
        1) borrar este archivo
-       2) quitar la línea  @import './experiments-v2.css';  de global.css
-       3) volver el import del tema a './themes/theme-corporate.css'
-       4) (si se tocó) revertir tailwind.config.mjs y Layout.astro
-   Nota: NO se importa `experiments.css` (v1) → con esto desaparecen
-   el glow verde y las scanlines CRT del tema anterior.
+       2) borrar la línea @import de theme-aurora.css
    Propuesta completa y tokens: PROPUESTA_ESTILO_V2.md
    ============================================================ */
 
@@ -17,15 +14,15 @@
    html pinta el lienzo; body queda transparente para que el
    ::before fijo (z-index:-1) sea visible por debajo del contenido.
    ------------------------------------------------------------ */
-html {
+html[data-theme='aurora'] {
   background-color: #08090d;
 }
 
-body {
+html[data-theme='aurora'] body {
   background-color: transparent;
 }
 
-body::before {
+html[data-theme='aurora'] body::before {
   content: '';
   position: fixed;
   inset: 0;
@@ -52,8 +49,8 @@ body::before {
    títulos de sección). background-clip:text gana al color
    inline de los componentes gracias a -webkit-text-fill-color.
    ------------------------------------------------------------ */
-h1,
-.section-title {
+html[data-theme='aurora'] h1,
+html[data-theme='aurora'] .section-title {
   background-image: var(--gradient-brand);
   -webkit-background-clip: text;
   background-clip: text;
@@ -64,7 +61,7 @@ h1,
    PASO 2c — Tarjetas de vidrio + hover lift
    (pisa a .card de @layer components: este archivo va sin capa)
    ------------------------------------------------------------ */
-.card {
+html[data-theme='aurora'] .card {
   background-color: rgba(255, 255, 255, 0.045);
   border-color: rgba(255, 255, 255, 0.09);
   backdrop-filter: blur(14px) saturate(1.3);
@@ -76,7 +73,7 @@ h1,
     border-color var(--transition-normal);
 }
 
-.card:hover {
+html[data-theme='aurora'] .card:hover {
   transform: translateY(-3px);
   border-color: rgba(129, 140, 248, 0.45);
   box-shadow:
@@ -88,21 +85,21 @@ h1,
    PASO 2d — CTA primario: degradado sólido indigo (texto blanco
    ≥ 6.3:1) + glow; hover oscurece en vez de aclarar para no
    bajar el contraste por debajo de 4.5:1.
-   (Reemplaza a las reglas de contraste "verde" del v1, que se
-   eliminaron de global.css en este experimento.)
+   (El tema terminal aplica sus propias reglas de contraste en
+   experiments-terminal.css.)
    ------------------------------------------------------------ */
-.btn-primary {
+html[data-theme='aurora'] .btn-primary {
   background: var(--gradient-brand-solid);
   color: #ffffff;
   box-shadow: 0 8px 24px rgba(99, 102, 241, 0.35);
 }
 
-.btn-primary,
-.btn-primary:hover {
+html[data-theme='aurora'] .btn-primary,
+html[data-theme='aurora'] .btn-primary:hover {
   color: #ffffff;
 }
 
-.btn-primary:hover {
+html[data-theme='aurora'] .btn-primary:hover {
   background: linear-gradient(135deg, #4338ca 0%, #3730a3 100%);
   transform: translateY(-2px);
   box-shadow: 0 12px 30px rgba(99, 102, 241, 0.45);
@@ -111,10 +108,10 @@ h1,
 /* ------------------------------------------------------------
    PASO 3 — Mono como acento (el cuerpo ya es Inter vía tema)
    ------------------------------------------------------------ */
-.badge,
-code,
-pre,
-kbd {
+html[data-theme='aurora'] .badge,
+html[data-theme='aurora'] code,
+html[data-theme='aurora'] pre,
+html[data-theme='aurora'] kbd {
   font-family: var(--font-family-mono);
 }
 
@@ -122,37 +119,23 @@ kbd {
    PASO 4a — Navbar de vidrio (gana a la utility bg-background/95
    por especificidad: 1 elemento + 2 clases)
    ------------------------------------------------------------ */
-nav.fixed.top-0 {
+html[data-theme='aurora'] nav.fixed.top-0 {
   background-color: rgba(8, 9, 13, 0.72);
   backdrop-filter: blur(12px) saturate(1.4);
   -webkit-backdrop-filter: blur(12px) saturate(1.4);
 }
 
 /* ------------------------------------------------------------
-   PASO 4b — Foco visible accesible
-   ------------------------------------------------------------ */
-a:focus-visible,
-button:focus-visible,
-[tabindex]:focus-visible {
-  outline: 2px solid #818cf8;
-  outline-offset: 3px;
-  border-radius: 4px;
-}
-
-/* ------------------------------------------------------------
-   PASO 4c — Respeta prefers-reduced-motion
+   PASO 4c — Respeta prefers-reduced-motion (solo efectos de este
+   tema; el scroll-behavior global está en global.css)
    ------------------------------------------------------------ */
 @media (prefers-reduced-motion: reduce) {
-  body::before {
+  html[data-theme='aurora'] body::before {
     animation: none;
   }
 
-  html {
-    scroll-behavior: auto;
-  }
-
-  .card,
-  .btn-primary {
+  html[data-theme='aurora'] .card,
+  html[data-theme='aurora'] .btn-primary {
     transition: none;
   }
 }

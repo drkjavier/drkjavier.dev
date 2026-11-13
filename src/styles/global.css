@@ -1,8 +1,14 @@
 /* ============================================
-   GLOBAL STYLES
+   GLOBAL STYLES  (100% genérico: sin reglas de tema)
+   -----------------------------------------------------------
+   🎨 SWITCH DE TEMAS — el nombre default vive en UN solo lugar:
+       src/layouts/Layout.astro → <html lang="…" data-theme="terminal">
+   Cambia ese nombre (`terminal` ↔ `aurora`) y cambia TODO el estilo.
+   Cada tema es autocontenido (arrastra sus propios efectos).
+   En desarrollo hay un botón en la navbar para previsualizar sin tocar código.
    ============================================ */
-@import './themes/theme-aurora.css';  /* v2 Aurora Glass (v1 Terminal Dark: theme-corporate.css) */
-@import './experiments-v2.css';  /* ajustes descartables v2 — ver PROPUESTA_ESTILO_V2.md */
+@import './themes/theme-terminal.css';  /* Terminal Dark (default) */
+@import './themes/theme-aurora.css';    /* Aurora Glass (alterno) */
 
 @tailwind base;
 @tailwind components;
@@ -19,8 +25,23 @@
     scroll-behavior: smooth;
   }
 
+  /* Foco visible accesible — genérico: usa el token del tema activo */
+  a:focus-visible,
+  button:focus-visible,
+  [tabindex]:focus-visible {
+    outline: 2px solid var(--color-primary-light);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
   body {
-    font-family: var(--font-family-base, 'JetBrains Mono', ui-monospace, monospace);
+    font-family: var(--font-family-base, system-ui, sans-serif);
     background-color: var(--color-background);
     color: var(--color-text);
     line-height: 1.6;
@@ -113,9 +134,3 @@
     @apply pb-0;
   }
 }
-
-/* ============================================
-   (v1 eliminado en experiment/styles-v2: las reglas de contraste
-   sobre verde brillante ya no aplican — primary ahora es indigo
-   sólido con texto blanco ≥ 6.3:1. Ver PROPUESTA_ESTILO_V2.md.)
-   ============================================ */
