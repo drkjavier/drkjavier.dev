@@ -102,7 +102,7 @@ python3 -c "import yaml;print(yaml.safe_load(open('src/data/experience.yaml'))['
 ## 📅 Registro de cambios
 
 ### 📅 2026-11-13 — feat(style): implementa Aurora Glass (v2, pasos 1–4)
-**Autor:** modelo (pi/mimo-v2.6-flash) · **Commit:** `<pendiente>` (rama `experiment/styles-v2`)
+**Autor:** modelo (pi/mimo-v2.6-flash) · **Commit:** `bb2172c` (rama `experiment/styles-v2`)
 **Qué cambió:**
 - `src/styles/themes/theme-aurora.css` **(nuevo)** → tema Aurora Glass: fondo `#08090d`, superficies `rgba(255,255,255,.045/.07)`, primario `#4f46e5` (+light `#818cf8`, dark `#3730a3`), acento cian `#22d3ee`, tokens `--gradient-brand` y `--font-family-mono`, base **Inter**.
 - `src/styles/experiments-v2.css` **(nuevo)** → aurora de fondo (`body::before` fijo con 3 radial-gradients + deriva 24 s), títulos en degradado (`h1`, `.section-title`), tarjetas glass (`backdrop-filter` + hover lift), CTA con degradado sólido indigo + glow, navbar de vidrio, `:focus-visible` indigo, `prefers-reduced-motion`.
@@ -116,7 +116,7 @@ python3 -c "import yaml;print(yaml.safe_load(open('src/data/experience.yaml'))['
 **Impacto / pendientes:** revisar en local (`npm run dev`) y decidir merge; si se mergea, producción pasa a Aurora Glass; para volver a v1: revertir los commits de esta rama o seguir el *Revertir* de `PROPUESTA_ESTILO_V2.md`.
 
 ### 📅 2026-11-13 — docs: guías actualizadas al tema Terminal Dark y nueva rama de experimentos
-**Autor:** modelo (pi/mimo-v2.6-flash) · **Commit:** `da693bb` (rama `main`)
+**Autor:** modelo (pi/mimo-v2.6-flash) · **Commit:** `b5d8f30` (rama `main`)
 **Qué cambió:**
 - `README.md` → estructura (aparece `experiments.css`) y sección *Cambiar tema*: el tema actual es **Terminal Dark** (con nota de que el archivo sigue llamándose `theme-corporate.css`), enlace a `EXPERIMENTOS_ESTILO.md`.
 - `AI_UPDATE_GUIDE.md` → nota *🎨 Tema visual actual* (tokens, archivos y "no cambiar salvo petición explícita") + `experiments.css` en el árbol.
