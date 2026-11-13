@@ -2,6 +2,7 @@
    GLOBAL STYLES
    ============================================ */
 @import './themes/theme-corporate.css';
+@import './experiments.css';  /* ajustes descartables — ver EXPERIMENTOS_ESTILO.md */
 
 @tailwind base;
 @tailwind components;
@@ -19,7 +20,7 @@
   }
 
   body {
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: var(--font-family-base, 'JetBrains Mono', ui-monospace, monospace);
     background-color: var(--color-background);
     color: var(--color-text);
     line-height: 1.6;
@@ -111,4 +112,20 @@
   .timeline-item:last-child {
     @apply pb-0;
   }
+}
+
+/* ============================================
+   EXPERIMENTO "paso 1": contraste de texto sobre verde brillante
+   (primary pasó a #3fb950 → el texto blanco no llega a 4.5:1)
+   Revertir: git revert <commit del paso 1>
+   Mapeo completo: EXPERIMENTOS_ESTILO.md
+   ============================================ */
+.btn-primary,
+.btn-primary:hover {
+  color: #06120a;
+}
+
+/* Botón activo del selector de idioma (LanguageToggle) */
+button[style*="--color-primary"] {
+  color: #06120a !important;
 }

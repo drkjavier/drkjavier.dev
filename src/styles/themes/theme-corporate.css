@@ -1,42 +1,43 @@
 /* ============================================
-   THEME: Corporate
-   Cambiar el import en Layout.astro para migrar de tema
+   THEME: Terminal Dark (modo consola)
+   Cambiar el import en global.css para migrar de tema
    ============================================ */
 
 :root {
   /* Primary palette */
-  --color-primary: #1a365d;
-  --color-primary-light: #2c5282;
-  --color-primary-dark: #0f2440;
+  --color-primary: #3fb950;
+  --color-primary-light: #56d364;
+  --color-primary-dark: #0f3d24;
 
   /* Secondary palette */
-  --color-secondary: #2d3748;
-  --color-secondary-light: #4a5568;
+  --color-secondary: #8b949e;
+  --color-secondary-light: #a2aab5;
 
   /* Accent */
-  --color-accent: #3182ce;
-  --color-accent-light: #4299e1;
+  --color-accent: #d29922;
+  --color-accent-light: #e3b341;
 
   /* Backgrounds */
-  --color-background: #ffffff;
-  --color-surface: #f7fafc;
-  --color-surface-alt: #edf2f7;
+  --color-background: #0d1117;
+  --color-surface: #161b22;
+  --color-surface-alt: #21262d;
 
   /* Text */
-  --color-text: #1a202c;
-  --color-text-muted: #718096;
+  --color-text: #e6edf3;
+  --color-text-muted: #9198a1;
   --color-text-inverse: #ffffff;
 
   /* Borders */
-  --color-border: #e2e8f0;
-  --color-border-light: #edf2f7;
+  --color-border: #30363d;
+  --color-border-light: #21262d;
 
   /* Spacing */
   --section-padding: 5rem;
   --container-max-width: 1200px;
 
   /* Typography */
-  --font-size-hero: 3.5rem;
+  --font-family-base: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-size-hero: 3rem;
   --font-size-h2: 2rem;
   --font-size-h3: 1.5rem;
   --font-size-body: 1rem;
