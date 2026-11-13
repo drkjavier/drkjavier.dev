@@ -19,7 +19,7 @@
   }
 
   body {
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: var(--font-family-base, 'JetBrains Mono', ui-monospace, monospace);
     background-color: var(--color-background);
     color: var(--color-text);
     line-height: 1.6;
