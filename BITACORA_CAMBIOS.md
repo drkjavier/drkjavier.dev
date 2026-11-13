@@ -101,6 +101,15 @@ python3 -c "import yaml;print(yaml.safe_load(open('src/data/experience.yaml'))['
 
 ## 📅 Registro de cambios
 
+### 📅 2026-11-13 — chore: merge `experiment/styles-v2` → `main` (fast-forward)
+**Autor:** modelo (pi/mimo-v2.6-flash) · **Commit:** `46bc145` (rama `main`, fast-forward desde `b5d8f30`)
+**Qué cambió:**
+- `main` avanza 5 commits: sistema de temas (`f44718a`), propuesta Aurora (`626ca48`), implementación Aurora v2 (`bb2172c`), hashes de bitácora (`b17cb2f`) y su propia entrada (`46bc145`). Sin conflictos (fast-forward, no hubo commit de merge).
+**Por qué:** decisión del dueño de llevar el sistema de temas a `main` (default **Terminal Dark**; Aurora disponible cambiando `data-theme`).
+**Cómo se verificó:** `npm run build` OK en `main` (2 páginas); dist con `data-theme="terminal"` en ES y EN; CSS con 21 reglas `html[data-theme=aurora]` + 7 `html[data-theme=terminal]`; **0** rastro del toggle dev (`data-theme-id`/`getItem('theme')`); paleta Terminal presente (`0d1117`, `3fb950`).
+**Deploy:** pendiente decisión (producción sigue con la versión anterior — visualmente igual en Terminal, pero sin el sistema de temas ni el botón dev).
+**Impacto / pendientes:** el toggle `Terminal | Aurora` **ya no se emite en producción** (condición `import.meta.env.DEV` verificada: 0 coincidencias en `dist/`) — si se quisiera ver en prod habría que cambiar esa condición; rama `experiment/styles-v2` ya fusionada (se puede borrar).
+
 ### 📅 2026-11-13 — feat(themes): switch de temas por `data-theme` (terminal | aurora) + toggle dev
 **Autor:** modelo (pi/mimo-v2.6-flash) · **Commit:** `f44718a` (rama `experiment/styles-v2`)
 **Qué cambió:**
