@@ -100,6 +100,16 @@ python3 -c "import yaml;print(yaml.safe_load(open('src/data/experience.yaml'))['
 
 ## 📅 Registro de cambios
 
+### 📅 2026-11-13 — feat(projects): profundización de proyectos y corrección de etiquetas Open Source
+**Autor:** modelo (pi/mimo-v2.6-flash) · **Commit:** `e92f712` (rama `main`)
+**Qué cambió:**
+- `src/data/projects.yaml` → cada proyecto profundizado con arquitectura, testing, DevOps y prácticas verificadas en los repos reales (31 → 47 highlights; descripciones ampliadas; tecnologías añadidas: Spring Cloud, Docker, MDX, SQLite, NFC, Jest, Go, Lipgloss, GoReleaser, Brevo, Zustand, Recharts, Playwright, Node.js, YAML).
+- Etiquetas `company` corregidas: solo `tuipr + Homebrew tap` queda como `Open Source (MIT)`; los demás pasan de `Open Source` a `Personal project`.
+**Por qué:** (1) el dueño quiere que un reclutador vea un panorama amplio de habilidades por proyecto; (2) verificación con la API de GitHub (`/repos/{r}` y `/repos/{r}/license`, 2026-11-13): de los 8 proyectos solo `tuipr` tiene licencia (MIT, heredada de `cortezramos/tuipr`); los otros 6 repos públicos devuelven **404 en `/license`** → sin licencia no son open source (todo reservado), por lo que no se les puede poner esa etiqueta. El proyecto de Ericsson es propietario y sin repo público.
+**Cómo se verificó:** YAML válido (python yaml); `npm run build` OK (2 páginas); HTML de producción con 1× `Open Source (MIT)`, 6× `Personal project`, 1× `Ericsson Guatemala`; highlights nuevos presentes (Spring Cloud, Gherkin, GoReleaser, offline-first).
+**Deploy:** producción ❌ pendiente (`npx vercel --prod --yes`)
+**Impacto / pendientes:** deploy pendiente; si se quiere que los repos personales sean open source hay que añadirles un archivo `LICENSE` (p. ej. MIT) y reetiquetarlos; no se modificaron componentes.
+
 ### 📅 2026-11-12 — feat(projects): proyectos de GitHub en el portafolio
 **Autor:** modelo (opencode/go) · **Commit:** `d762310` (rama `main`)
 **Qué cambió:**
