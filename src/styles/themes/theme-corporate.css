@@ -5,17 +5,17 @@
 
 :root {
   /* Primary palette */
-  --color-primary: #1f6feb;
-  --color-primary-light: #388bfd;
-  --color-primary-dark: #10233f;
+  --color-primary: #3fb950;
+  --color-primary-light: #56d364;
+  --color-primary-dark: #0f3d24;
 
   /* Secondary palette */
   --color-secondary: #8b949e;
   --color-secondary-light: #a2aab5;
 
   /* Accent */
-  --color-accent: #3fb950;
-  --color-accent-light: #56d364;
+  --color-accent: #d29922;
+  --color-accent-light: #e3b341;
 
   /* Backgrounds */
   --color-background: #0d1117;

@@ -112,3 +112,19 @@
     @apply pb-0;
   }
 }
+
+/* ============================================
+   EXPERIMENTO "paso 1": contraste de texto sobre verde brillante
+   (primary pasó a #3fb950 → el texto blanco no llega a 4.5:1)
+   Revertir: git revert <commit del paso 1>
+   Mapeo completo: EXPERIMENTOS_ESTILO.md
+   ============================================ */
+.btn-primary,
+.btn-primary:hover {
+  color: #06120a;
+}
+
+/* Botón activo del selector de idioma (LanguageToggle) */
+button[style*="--color-primary"] {
+  color: #06120a !important;
+}
