@@ -1,6 +1,9 @@
 # ============================================
 # PROJECTS DATA - Actualizar desde el CV
 # ============================================
+# Nota de licencias (verificado contra la API de GitHub, 2026-11-13):
+# solo los repos con archivo LICENSE se etiquetan "Open Source".
+# Repos públicos SIN licencia = "Personal project" (no son open source).
 projects:
   - name: "Network Configuration Management System"
     company: "Ericsson Guatemala"
@@ -10,18 +13,28 @@ projects:
         Sistema de gestión de configuración de red que monitorea millones
         de nodos de red simultáneamente, permitiendo a los ingenieros de
         red administrar y configurar infraestructura de telecomunicaciones
-        de manera eficiente.
+        de manera eficiente. Proyecto empresarial propietario (sin
+        repositorio público): backend de microservicios integrado con
+        sistemas legacy y dashboard en tiempo real.
       en: >
         Network configuration management system that monitors millions of
         network nodes simultaneously, enabling network engineers to
         efficiently manage and configure telecommunications infrastructure.
+        Proprietary enterprise project (no public repository): microservices
+        backend integrated with legacy systems plus a real-time dashboard.
     highlights:
       - es: "Arquitectura de backend de microservicios usando Java/Spring Boot con Apache Camel para integración con sistemas legacy."
         en: "Architected microservices backend using Java/Spring Boot with Apache Camel for seamless legacy system integration."
+      - es: "Integración de sistemas legacy mediante rutas y transformaciones de Apache Camel (patrones de integración EIP)."
+        en: "Legacy system integration through Apache Camel routes and transformations (EIP integration patterns)."
       - es: "Dashboard administrativo en tiempo real con Angular 12 y TypeScript con visualización interactiva de datos."
         en: "Real-time administrative dashboard using Angular 12 and TypeScript with interactive data visualization."
       - es: "State management complejo y actualizaciones en tiempo real para monitorear millones de nodos simultáneamente."
         en: "Complex state management and real-time updates to monitor millions of network nodes simultaneously."
+      - es: "Diseño de contratos REST para desacoplar el dashboard, los microservicios y los sistemas legacy."
+        en: "Designed REST contracts to decouple the dashboard, microservices and legacy systems."
+      - es: "Persistencia en Oracle para la configuración masiva de millones de nodos de red."
+        en: "Oracle-backed persistence for mass configuration of millions of network nodes."
       - es: "Logré una reducción del 60% en tiempo de configuración manual para ingenieros de campo."
         en: "Achieved a 60% reduction in manual configuration time for field engineers through automation."
     technologies:
@@ -34,54 +47,70 @@ projects:
       - "REST APIs"
 
   - name: "drkjavier.dev"
-    company: "Open Source"
+    company: "Personal project"
     period: "2026"
     link: "https://github.com/drkjavier/drkjavier.dev"
     description:
       es: >
-        Portafolio personal construido con Astro, Tailwind CSS y React, con
-        contenido estructurado en YAML, internacionalización ES/EN y
-        despliegue continuo en Vercel.
+        Portafolio personal construido con Astro (SSG + arquitectura
+        islands), Tailwind CSS y React solo donde hay interactividad, con
+        contenido estructurado en YAML, internacionalización ES/EN con
+        rutas independientes y despliegue continuo en Vercel.
       en: >
-        Personal portfolio built with Astro, Tailwind CSS and React, with
-        YAML-driven content, ES/EN internationalization and continuous
-        deployment on Vercel.
+        Personal portfolio built with Astro (SSG + islands architecture),
+        Tailwind CSS and React only where interactivity is needed, with
+        YAML-driven content, ES/EN internationalization with independent
+        routes and continuous deployment on Vercel.
     highlights:
-      - es: "Sitio estático de alto rendimiento con rutas independientes para español e inglés."
-        en: "High-performance static site with independent routes for Spanish and English."
-      - es: "Contenido desacoplado en archivos YAML (perfil, experiencia, proyectos, skills) fácil de actualizar."
-        en: "Content decoupled into YAML files (profile, experience, projects, skills) for easy updates."
+      - es: "Sitio estático de alto rendimiento con rutas independientes para español e inglés (i18n de Astro)."
+        en: "High-performance static site with independent routes for Spanish and English (Astro i18n)."
+      - es: "Contenido desacoplado en archivos YAML (perfil, experiencia, proyectos, skills, educación) con loader en TypeScript: actualizar el sitio no requiere tocar componentes."
+        en: "Content decoupled into YAML files (profile, experience, projects, skills, education) with a TypeScript loader: updating the site requires no component changes."
+      - es: "Arquitectura islands: HTML estático con islas React solo donde hay estado (toggle de idioma)."
+        en: "Islands architecture: static HTML with React islands only where state exists (language toggle)."
+      - es: "Sistema de temas con CSS variables (design tokens) y Tailwind para estilos reutilizables."
+        en: "Theming system with CSS variables (design tokens) and Tailwind for reusable styling."
       - es: "Build y despliegue automatizados con GitHub y Vercel."
         en: "Automated build and deploy with GitHub and Vercel."
+      - es: "Componentes modulares (.astro + .tsx) manteniendo datos, layout y páginas separados."
+        en: "Modular components (.astro + .tsx) keeping data, layout and pages separated."
     technologies:
       - "Astro"
       - "Tailwind CSS"
       - "React"
       - "TypeScript"
+      - "YAML"
       - "Vercel"
 
   - name: "IT Tickets"
-    company: "Open Source"
+    company: "Personal project"
     period: "2026"
     link: "https://github.com/drkjavier/it-tickets"
     description:
       es: >
         Sistema de tickets construido con Next.js (App Router), Prisma y
-        PostgreSQL, con editor enriquecido TipTap, almacenamiento de medios
-        en Cloudinary y notificaciones por correo con Brevo.
+        PostgreSQL: 13 modelos de dominio, más de 25 endpoints REST,
+        editor enriquecido TipTap, almacenamiento de medios en Cloudinary,
+        flujos asíncronos con Inngest y notificaciones por correo con
+        Brevo.
       en: >
         Ticketing system built with Next.js (App Router), Prisma and
-        PostgreSQL, featuring a TipTap rich-text editor, Cloudinary media
-        storage and Brevo email notifications.
+        PostgreSQL: 13 domain models, 25+ REST endpoints, TipTap rich-text
+        editor, Cloudinary media storage, Inngest async workflows and
+        Brevo email notifications.
     highlights:
-      - es: "Editor enriquecido TipTap con imágenes, enlaces y sanitización de HTML en el servidor."
-        en: "TipTap rich-text editor with images, links and server-side HTML sanitization."
-      - es: "Autenticación con JWT (jose) y hash de contraseñas con bcryptjs."
-        en: "JWT authentication (jose) with bcryptjs password hashing."
-      - es: "Flujos asíncronos orquestados con Inngest y envío de correos transaccionales con Brevo."
-        en: "Asynchronous workflows orchestrated with Inngest and transactional emails via Brevo."
-      - es: "Desplegado en Vercel."
-        en: "Deployed on Vercel."
+      - es: "Editor enriquecido TipTap con imágenes, enlaces y sanitización de HTML en el servidor (DOMPurify)."
+        en: "TipTap rich-text editor with images, links and server-side HTML sanitization (DOMPurify)."
+      - es: "Autenticación con JWT (jose) y hash de contraseñas con bcryptjs, protegida por middleware con control de roles (admin/usuario)."
+        en: "JWT authentication (jose) with bcryptjs password hashing, protected by middleware with role-based access control (admin/user)."
+      - es: "Modelo de datos Prisma con 13 modelos y 7 enums: tickets, subtareas, comentarios, historial de estados, tags, notificaciones y cuota diaria de correos."
+        en: "Prisma data model with 13 models and 7 enums: tickets, subtasks, comments, status history, tags, notifications and daily email quota."
+      - es: "API REST con más de 25 route handlers (tickets, proyectos, usuarios, notificaciones, dashboard, salud del servicio)."
+        en: "REST API with 25+ route handlers (tickets, projects, users, notifications, dashboard, service health)."
+      - es: "Flujos asíncronos orquestados con Inngest (scheduler, notificaciones) y envío de correos transaccionales con Brevo y Resend."
+        en: "Asynchronous workflows orchestrated with Inngest (scheduler, notifications) plus transactional emails via Brevo and Resend."
+      - es: "Dashboards con Recharts, estado en cliente con Zustand y uploads a Cloudinary; desplegado en Vercel."
+        en: "Recharts dashboards, client-side state with Zustand and Cloudinary uploads; deployed on Vercel."
     technologies:
       - "Next.js"
       - "React"
@@ -91,28 +120,39 @@ projects:
       - "TipTap"
       - "Cloudinary"
       - "Inngest"
+      - "Brevo"
+      - "Zustand"
+      - "Recharts"
       - "Vercel"
 
   - name: "DC Rentals"
-    company: "Open Source"
+    company: "Personal project"
     period: "2026"
     link: "https://github.com/drkjavier/dc-rentals"
     description:
       es: >
-        Landing page MVP de alquiler de RVs construida con Astro y Supabase,
-        con componentes React, estado global con Zustand, validación con Zod
-        y suite de pruebas con Vitest y Playwright.
+        Landing page MVP de alquiler de RVs construida en modo híbrido con
+        Astro (SSG + endpoints de servidor) y Supabase, con componentes
+        React, estado global con Zustand, validación con Zod, i18n EN/FR y
+        suite de pruebas con Vitest y Playwright.
       en: >
-        RV rental MVP landing page built with Astro and Supabase, with React
-        components, global state via Zustand, Zod validation and a Vitest +
-        Playwright test suite.
+        RV rental MVP landing page built in hybrid mode with Astro (SSG +
+        server endpoints) and Supabase, with React components, global
+        state via Zustand, Zod validation, EN/FR internationalization and
+        a Vitest + Playwright test suite.
     highlights:
-      - es: "Integración con Supabase para datos y funcionalidad backend sin servidor propio."
-        en: "Supabase integration for data and backend functionality without a custom server."
-      - es: "Pruebas automatizadas: unitarias con Vitest y end-to-end con Playwright."
-        en: "Automated testing: unit tests with Vitest and end-to-end tests with Playwright."
-      - es: "Especificaciones técnicas y change requests versionados dentro del repositorio."
-        en: "Technical specs and change requests versioned inside the repository."
+      - es: "Integración con Supabase (schema.sql y seed.sql) para datos y funcionalidad backend sin servidor propio."
+        en: "Supabase integration (schema.sql and seed.sql) for data and backend functionality without a custom server."
+      - es: "Pruebas automatizadas: 8 suites unitarias con Vitest (precios, disponibilidad, calendario, i18n, stores, API, esquemas de contenido, booking widget) con cobertura V8 y e2e con Playwright."
+        en: "Automated testing: 8 Vitest unit suites (pricing, availability, calendar, i18n, stores, API, content schemas, booking widget) with V8 coverage plus Playwright end-to-end tests."
+      - es: "Modo híbrido de Astro: SSG por defecto con endpoints serverless en Vercel para datos dinámicos."
+        en: "Astro hybrid mode: SSG by default with serverless endpoints on Vercel for dynamic data."
+      - es: "Internacionalización EN/FR con rutas por prefijo y Content Collections en MDX (vehículos, FAQ, itinerarios)."
+        en: "EN/FR internationalization with prefix routing and MDX Content Collections (vehicles, FAQ, itineraries)."
+      - es: "Calidad y accesibilidad con ESLint (astro, jsx-a11y), Prettier y validación Zod del contenido."
+        en: "Quality and accessibility with ESLint (astro, jsx-a11y), Prettier and Zod content validation."
+      - es: "Disciplina de documentación: especificación técnica, ADRs y change requests versionados en el repositorio."
+        en: "Documentation discipline: technical specification, ADRs and change requests versioned in the repository."
     technologies:
       - "Astro"
       - "React"
@@ -121,29 +161,39 @@ projects:
       - "Tailwind CSS"
       - "Zustand"
       - "Zod"
+      - "MDX"
       - "Vitest"
       - "Playwright"
 
   - name: "Bean Auditor App"
-    company: "Open Source"
+    company: "Personal project"
     period: "2026"
     link: "https://github.com/drkjavier/bean-auditor-app"
     description:
       es: >
-        Aplicación móvil de auditoría construida en React Native con mapas
-        interactivos (MapLibre y Leaflet) y cálculos geoespaciales con turf
-        para captura y revisión en campo.
+        Aplicación móvil de auditoría de campo construida en React Native
+        (iOS/Android y target web) con mapas interactivos (MapLibre y
+        Leaflet), lectura NFC, captura offline con SQLite y cálculos
+        geoespaciales con turf; incluye backend en Go y especificaciones
+        BDD en Gherkin.
       en: >
-        Audit mobile application built with React Native using interactive
-        maps (MapLibre and Leaflet) and geospatial calculations with turf
-        for field capture and review.
+        Field audit mobile application built with React Native (iOS/Android
+        plus web target) using interactive maps (MapLibre and Leaflet), NFC
+        reading, offline capture with SQLite and geospatial calculations
+        with turf; includes a Go backend and Gherkin BDD specs.
     highlights:
       - es: "Mapas nativos con MapLibre/MapTiler y capas web con Leaflet y clustering."
         en: "Native maps with MapLibre/MapTiler plus web layers with Leaflet and clustering."
-      - es: "Lógica geoespacial con turf: distancia, rumbo y polígonos."
-        en: "Geospatial logic with turf: distance, bearing and polygons."
-      - es: "Navegación con React Navigation (tabs y stack) e iconografía Material Design."
-        en: "Navigation with React Navigation (bottom tabs and stack) with Material Design icons."
+      - es: "Lógica geoespacial con turf: distancia, rumbo y polígonos, más geolocalización con permisos de dispositivo."
+        en: "Geospatial logic with turf: distance, bearing and polygons, plus device geolocation with runtime permissions."
+      - es: "Arquitectura offline-first con SQLite (react-native-quick-sqlite / sql.js), esquema sincronizado y migraciones locales."
+        en: "Offline-first architecture with SQLite (react-native-quick-sqlite / sql.js), synced schema and local migrations."
+      - es: "Captura con NFC (react-native-nfc-manager) para identificación de elementos en campo."
+        en: "NFC capture (react-native-nfc-manager) for identifying elements in the field."
+      - es: "Calidad con Jest y React Native Testing Library (tests de dominio, estado y componentes) y más de 20 especificaciones Gherkin (BDD)."
+        en: "Quality with Jest and React Native Testing Library (domain, state and component tests) plus 20+ Gherkin specifications (BDD)."
+      - es: "Backend en Go con arquitectura cmd/internal/pkg y docker-compose; analytics con PostHog."
+        en: "Go backend with cmd/internal/pkg architecture and docker-compose; analytics with PostHog."
     technologies:
       - "React Native"
       - "TypeScript"
@@ -151,90 +201,118 @@ projects:
       - "Leaflet"
       - "turf"
       - "React Navigation"
+      - "SQLite"
+      - "NFC"
+      - "Zustand"
+      - "Jest"
+      - "Go"
 
   - name: "tuipr + Homebrew tap"
-    company: "Open Source (fork)"
+    company: "Open Source (MIT)"
     period: "2026"
     link: "https://github.com/drkjavier/tuipr"
     description:
       es: >
         Fork de tuipr, un gestor del ciclo de vida de Pull Requests en la
-        terminal escrito en Go con Charm Bubbletea, con soporte de GitHub CLI
-        y distribución mediante un tap de Homebrew propio.
+        terminal escrito en Go con Charm Bubbletea (licencia MIT, el único
+        repositorio del portafolio con licencia open source verificada),
+        con soporte de GitHub CLI y distribución mediante un tap de
+        Homebrew propio.
       en: >
         Fork of tuipr, a keyboard-driven Pull Request lifecycle manager for
-        the terminal written in Go with Charm Bubbletea, with GitHub CLI
-        support and distribution through a custom Homebrew tap.
+        the terminal written in Go with Charm Bubbletea (MIT license, the
+        only portfolio repository with a verified open source license),
+        with GitHub CLI support and distribution through a custom Homebrew
+        tap.
     highlights:
+      - es: "Contribución open source: fork mantenimiento del upstream cortezramos/tuipr bajo licencia MIT."
+        en: "Open source contribution: maintained fork of upstream cortezramos/tuipr under the MIT license."
       - es: "Navegación estilo LazyGit con paneles numerados y atajos de teclado Vim."
         en: "LazyGit-style navigation with numbered panels and Vim keybindings."
       - es: "Creación, revisión y merge de PRs (merge, squash o rebase) desde la terminal."
         en: "Create, review and merge PRs (merge, squash or rebase) from the terminal."
       - es: "Detección de conflictos con indicadores visuales y atajos a nvim."
         en: "Conflict detection with visual indicators and nvim hotkeys."
-      - es: "Tap de Homebrew (homebrew-tuipr) para instalación con brew install."
-        en: "Homebrew tap (homebrew-tuipr) for brew install installation."
+      - es: "Arquitectura Elm en Go (Model/Update/View) con Bubbletea, estilos con Lipgloss y configuración TOML."
+        en: "Elm architecture in Go (Model/Update/View) with Bubbletea, styling via Lipgloss and TOML configuration."
+      - es: "Ingeniería de releases: GoReleaser genera la Formula de Ruby publicada en el tap homebrew-tuipr (brew tap e install), con pruebas en Docker."
+        en: "Release engineering: GoReleaser builds the Ruby Formula published to the homebrew-tuipr tap (brew tap and install), with Docker-based tests."
     technologies:
       - "Go"
       - "Bubbletea"
+      - "Lipgloss"
       - "GitHub CLI"
+      - "GoReleaser"
       - "Homebrew"
       - "Ruby"
 
   - name: "Backend & Cloud Labs (Java)"
-    company: "Open Source"
+    company: "Personal project"
     period: "2025"
     link: "https://github.com/drkjavier/microservicios-springboot"
     description:
       es: >
-        Colección de laboratorios de backend: microservicios con Spring Boot,
-        integración con Apache Camel, primeros pasos y microservicios con
-        Quarkus, y ejercicios de orquestación con Kubernetes.
+        Colección de laboratorios de backend y cloud: ecosistema Spring
+        Cloud completo (Eureka, API Gateway, Zuul, Config Server, OAuth y
+        Zipkin), integración con Apache Camel, primeros pasos con Quarkus
+        y ejercicios de orquestación con Kubernetes.
       en: >
-        Collection of backend labs: microservices with Spring Boot,
-        Apache Camel integration, getting started and microservices with
-        Quarkus, plus Kubernetes orchestration exercises.
+        Collection of backend and cloud labs: full Spring Cloud ecosystem
+        (Eureka, API Gateway, Zuul, Config Server, OAuth and Zipkin),
+        Apache Camel integration, getting started with Quarkus and
+        Kubernetes orchestration exercises.
     highlights:
-      - es: "microservicios-springboot: ejemplos de servicios y APIs con Spring Boot."
-        en: "microservicios-springboot: services and API examples with Spring Boot."
-      - es: "advanced-apache-camel y spring-camel-project: patrones de integración con Apache Camel."
-        en: "advanced-apache-camel and spring-camel-project: integration patterns with Apache Camel."
-      - es: "start-using-quarkus y building-microservices-with-quarkus: adopción de Quarkus."
-        en: "start-using-quarkus and building-microservices-with-quarkus: Quarkus adoption."
-      - es: "curso-kubernetes: ejercicios de despliegue y orquestación con Kubernetes."
-        en: "curso-kubernetes: deployment and orchestration exercises with Kubernetes."
+      - es: "microservicios-springboot: Spring Cloud con descubrimiento de servicios (Eureka), API Gateway/Zuul, Config Server centralizado, autenticación OAuth y tracing distribuido con Zipkin."
+        en: "microservicios-springboot: Spring Cloud with service discovery (Eureka), API Gateway/Zuul, centralized Config Server, OAuth authentication and distributed tracing with Zipkin."
+      - es: "advanced-apache-camel y spring-camel-project: patrones de integración (EIP) con Apache Camel en proyectos Maven."
+        en: "advanced-apache-camel and spring-camel-project: integration patterns (EIP) with Apache Camel in Maven projects."
+      - es: "start-using-quarkus y building-microservices-with-quarkus: primeros pasos y adopción de Quarkus."
+        en: "start-using-quarkus and building-microservices-with-quarkus: getting started and Quarkus adoption."
+      - es: "curso-kubernetes: manifests de Kubernetes (Deployment, Service, ConfigMap, Secret, PV/PVC) para microservicios con MySQL/PostgreSQL y docker-compose."
+        en: "curso-kubernetes: Kubernetes manifests (Deployment, Service, ConfigMap, Secret, PV/PVC) for microservices with MySQL/PostgreSQL and docker-compose."
+      - es: "Build reproducible con Maven y Maven Wrapper en los laboratorios."
+        en: "Reproducible builds with Maven and Maven Wrapper across the labs."
     technologies:
       - "Java"
       - "Spring Boot"
+      - "Spring Cloud"
       - "Apache Camel"
       - "Quarkus"
       - "Kubernetes"
+      - "Docker"
       - "Maven"
 
   - name: "GitHub Actions & Automation"
-    company: "Open Source"
+    company: "Personal project"
     period: "2025"
     link: "https://github.com/drkjavier/gh-events"
     description:
       es: >
         Laboratorios de automatización CI/CD alrededor de GitHub Actions:
-        workflows personalizados, manejo de variables de entorno, eventos del
-        ciclo de vida de GitHub y construcción de imágenes de contenedor.
+        workflows personalizados, manejo de variables de entorno y
+        secretos, eventos del ciclo de vida de GitHub, ejecución de
+        pruebas E2E en el pipeline y construcción de imágenes de
+        contenedor.
       en: >
         CI/CD automation labs around GitHub Actions: custom workflows,
-        environment variable handling, GitHub lifecycle events and container
-        image builds.
+        environment variable and secret handling, GitHub lifecycle events,
+        end-to-end test execution in the pipeline and container image
+        builds.
     highlights:
       - es: "gh-events: workflows que reaccionan a eventos del repositorio."
         en: "gh-events: workflows that react to repository events."
-      - es: "gha-env: gestión de variables de entorno en pipelines."
-        en: "gha-env: environment variable handling in pipelines."
-      - es: "hg-containers: build y publicación de imágenes de contenedor."
-        en: "hg-containers: container image build and publishing."
-      - es: "gh-first-action y github-crash-course: plantillas y guías de inicio rápido."
-        en: "gh-first-action and github-crash-course: starter templates and quick-start guides."
+      - es: "gha-env: gestión de variables de entorno y secretos en pipelines, con suite E2E de Playwright corriendo en CI."
+        en: "gha-env: environment variable and secret handling in pipelines, with a Playwright E2E suite running in CI."
+      - es: "hg-containers: build y publicación de imágenes de contenedor desde workflows (Dfile + pipeline)."
+        en: "hg-containers: container image build and publishing from workflows (Dockerfile + pipeline)."
+      - es: "gh-first-action y github-crash-course: plantillas de arranque y práctica del flujo Git/GitHub (ramas, pull requests, merges)."
+        en: "gh-first-action and github-crash-course: starter templates and Git/GitHub workflow practice (branching, pull requests, merges)."
+      - es: "Apps Node.js con rutas como sujeto de prueba real de los pipelines."
+        en: "Node.js apps with routes used as real test subjects for the pipelines."
     technologies:
       - "GitHub Actions"
       - "JavaScript"
+      - "Node.js"
+      - "Playwright"
       - "Docker"
       - "CI/CD"
