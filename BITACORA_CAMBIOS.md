@@ -84,7 +84,7 @@ python3 -c "import yaml;print(yaml.safe_load(open('src/data/experience.yaml'))['
 | 5 | 🟢 Resuelto | Períodos laborales corregidos: BDG `2026-04 → Actualidad` (primer puesto), Ericsson `2015-09 → 2026-02`, Icon Americas `2013-09 → 2015-09`. | 2026-11-12 |
 | 6 | ℹ️ Info | Repos **privados** (no enlazar en el sitio): `beautify-hub`. Repos **sin remoto**: `bean-auditor-backend`, `spring-kafka-app`, `vertx-*`, `tickets`. Duplicado: `it-tickets-app` ≈ `it-tickets` (se usa `it-tickets`). | 2026-11-12 |
 | 7 | ℹ️ Info | `tuipr` en el portafolio es un **fork** (`fork: true` en la API de GitHub); se presenta como "Open Source (fork)" y su tap es `homebrew-tuipr`. | 2026-11-12 |
-| 8 | 🟢 Resuelto | **Tema del sitio**: de *Corporate* (azul `#1a365d`, Inter) a **Terminal Dark** (fondo `#0d1117`, primary verde `#3fb950`, acento ámbar `#d29922`, JetBrains Mono, glow verde + scanlines CRT). El archivo sigue llamándose `src/styles/themes/theme-corporate.css` (solo cambió su contenido); lo descartable vive en `src/styles/experiments.css` → mapeo de reversiones en `EXPERIMENTOS_ESTILO.md`. | 2026-11-13 |
+| 8 | 🟢 Resuelto | **Sistema de temas con switch**: default **Terminal Dark** (fondo `#0d1117`, verde `#3fb950`, JetBrains Mono) y alterno **Aurora Glass** (fondo `#08090d`, indigo `#4f46e5`, cian `#22d3ee`, Inter, tarjetas de vidrio). **Switch = UN nombre** en `Layout.astro` → `data-theme="terminal"` (`terminal` ↔ `aurora`); cada tema es autocontenido (`theme-*.css` importa su `experiments-*.css`). Renombres: `theme-corporate.css → theme-terminal.css`, `experiments.css → experiments-terminal.css`, `experiments-v2.css → experiments-aurora.css`. Botón `Terminal | Aurora` en navbar **solo en dev**; en producción manda el valor definido. Mapa: `EXPERIMENTOS_ESTILO.md` · Aurora: `PROPUESTA_ESTILO_V2.md`. | 2026-11-13 |
 
 ---
 
@@ -100,6 +100,21 @@ python3 -c "import yaml;print(yaml.safe_load(open('src/data/experience.yaml'))['
 ---
 
 ## 📅 Registro de cambios
+
+### 📅 2026-11-13 — feat(themes): switch de temas por `data-theme` (terminal | aurora) + toggle dev
+**Autor:** modelo (pi/mimo-v2.6-flash) · **Commit:** `f44718a` (rama `experiment/styles-v2`)
+**Qué cambió:**
+- **Renombres (git mv):** `themes/theme-corporate.css → themes/theme-terminal.css`, `experiments.css → experiments-terminal.css`, `experiments-v2.css → experiments-aurora.css` (pareja tema ↔ efectos, nombres que dicen la verdad).
+- **Temas autocontenidos y scopeados:** cada `theme-*.css` importa sus propios efectos y define sus tokens bajo `html[data-theme='<nombre>']`; todas las reglas de efectos van scopeadas igual → ambos temas conviven en el bundle sin pisarse.
+- `src/styles/global.css` → **100% genérico**: importa los 2 temas (`@import './themes/theme-terminal.css'` + `theme-aurora.css`), sin ninguna regla de tema; foco visible y `prefers-reduced-motion` (scroll) ahora aquí usando tokens (`--color-primary-light`).
+- `src/layouts/Layout.astro` → **el switch**: `<html lang={lang} data-theme="terminal">` (UN nombre para cambiar todo); Google Fonts carga **Inter + JetBrains Mono** siempre (cada tema elige con `--font-family-base`); script **solo dev** en `<head>` que aplica el tema guardado en `localStorage` (clave `theme`).
+- `src/components/ThemeToggle.astro` **(nuevo)** → pastilla `Terminal | Aurora` (estilo LanguageToggle, estado por `aria-pressed`, activo usa el token nuevo `--color-on-primary`); `Navbar.astro` lo renderiza **solo con `import.meta.env.DEV`** (desktop y menú móvil).
+- Tokens nuevos: `--color-on-primary` (terminal `#06120a` / aurora `#ffffff`) y `--gradient-brand(-solid)` en ambos temas.
+- Docs: `README.md` (estructura + sección *Cambiar tema* reescrita), `AI_UPDATE_GUIDE.md` (nota de tema y árbol), `EXPERIMENTOS_ESTILO.md` (tabla de renombres + mecanismo nuevo; históricas intactas), `PROPUESTA_ESTILO_V2.md` (Aurora = tema alternativo implementado).
+**Por qué:** petición del dueño: (1) switch cambiando **únicamente el nombre**; (2) poder volver al tema anterior en cualquier momento; (3) botón de cambio **oculto en producción con valor definido** → Plan B (bundle doble + atributo), porque con un import único era imposible el botón en runtime.
+**Cómo se verificó:** `npm run build` OK (2 páginas); dist: `data-theme="terminal"` en ES y EN; CSS con **21 reglas** `html[data-theme=aurora]` y **7** `html[data-theme=terminal]`; ambos paletas presentes (`3fb950`+`06120a` y `4f46e5`+`08090d`) y scanlines+aurora coexistiendo scopeadas; **0** rastro dev en dist (`data-theme-id`/`getItem('theme')` = 0); dev server: botón 2× (desktop + móvil) y script en `<head>`; contraste del botón activo 7.52:1 (terminal) y 6.29:1 (aurora); `global.css` sin hex ni reglas `data-theme`.
+**Deploy:** no aplica (rama local; producción sigue con Terminal Dark — que además sigue siendo el default).
+**Impacto / pendientes:** para publicar Aurora basta cambiar el nombre en `Layout.astro`; el botón nunca llega a prod; falta verificación visual en navegador real del toggle dev (hasta ahora HTTP/DOM).
 
 ### 📅 2026-11-13 — feat(style): implementa Aurora Glass (v2, pasos 1–4)
 **Autor:** modelo (pi/mimo-v2.6-flash) · **Commit:** `bb2172c` (rama `experiment/styles-v2`)
