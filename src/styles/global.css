@@ -1,8 +1,8 @@
 /* ============================================
    GLOBAL STYLES
    ============================================ */
-@import './themes/theme-corporate.css';
-@import './experiments.css';  /* ajustes descartables — ver EXPERIMENTOS_ESTILO.md */
+@import './themes/theme-aurora.css';  /* v2 Aurora Glass (v1 Terminal Dark: theme-corporate.css) */
+@import './experiments-v2.css';  /* ajustes descartables v2 — ver PROPUESTA_ESTILO_V2.md */
 
 @tailwind base;
 @tailwind components;
@@ -115,17 +115,7 @@
 }
 
 /* ============================================
-   EXPERIMENTO "paso 1": contraste de texto sobre verde brillante
-   (primary pasó a #3fb950 → el texto blanco no llega a 4.5:1)
-   Revertir: git revert <commit del paso 1>
-   Mapeo completo: EXPERIMENTOS_ESTILO.md
+   (v1 eliminado en experiment/styles-v2: las reglas de contraste
+   sobre verde brillante ya no aplican — primary ahora es indigo
+   sólido con texto blanco ≥ 6.3:1. Ver PROPUESTA_ESTILO_V2.md.)
    ============================================ */
-.btn-primary,
-.btn-primary:hover {
-  color: #06120a;
-}
-
-/* Botón activo del selector de idioma (LanguageToggle) */
-button[style*="--color-primary"] {
-  color: #06120a !important;
-}

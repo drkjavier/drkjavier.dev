@@ -1,0 +1,158 @@
+/* ============================================================
+   EXPERIMENTOS v2 — AURORA GLASS   (rama experiment/styles-v2)
+   ------------------------------------------------------------
+   ⚠️  Todo lo que vive en este archivo es DESCARTABLE.
+   Revertir el estilo v2 completo:
+       1) borrar este archivo
+       2) quitar la línea  @import './experiments-v2.css';  de global.css
+       3) volver el import del tema a './themes/theme-corporate.css'
+       4) (si se tocó) revertir tailwind.config.mjs y Layout.astro
+   Nota: NO se importa `experiments.css` (v1) → con esto desaparecen
+   el glow verde y las scanlines CRT del tema anterior.
+   Propuesta completa y tokens: PROPUESTA_ESTILO_V2.md
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   PASO 2a — Aurora de fondo (radial gradients con deriva lenta)
+   html pinta el lienzo; body queda transparente para que el
+   ::before fijo (z-index:-1) sea visible por debajo del contenido.
+   ------------------------------------------------------------ */
+html {
+  background-color: #08090d;
+}
+
+body {
+  background-color: transparent;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(60rem 40rem at 12% -10%, rgba(99, 102, 241, 0.3), transparent 60%),
+    radial-gradient(50rem 36rem at 95% 5%, rgba(34, 211, 238, 0.22), transparent 60%),
+    radial-gradient(55rem 40rem at 50% 110%, rgba(16, 185, 129, 0.18), transparent 60%);
+  animation: aurora-drift 24s ease-in-out infinite alternate;
+}
+
+@keyframes aurora-drift {
+  from {
+    transform: translate3d(-2%, -1%, 0) scale(1);
+  }
+  to {
+    transform: translate3d(2%, 2%, 0) scale(1.06);
+  }
+}
+
+/* ------------------------------------------------------------
+   PASO 2b — Títulos con la marca en degradado (H1 del hero y
+   títulos de sección). background-clip:text gana al color
+   inline de los componentes gracias a -webkit-text-fill-color.
+   ------------------------------------------------------------ */
+h1,
+.section-title {
+  background-image: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ------------------------------------------------------------
+   PASO 2c — Tarjetas de vidrio + hover lift
+   (pisa a .card de @layer components: este archivo va sin capa)
+   ------------------------------------------------------------ */
+.card {
+  background-color: rgba(255, 255, 255, 0.045);
+  border-color: rgba(255, 255, 255, 0.09);
+  backdrop-filter: blur(14px) saturate(1.3);
+  -webkit-backdrop-filter: blur(14px) saturate(1.3);
+  box-shadow: var(--shadow-sm);
+  transition:
+    transform var(--transition-normal),
+    box-shadow var(--transition-normal),
+    border-color var(--transition-normal);
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(129, 140, 248, 0.45);
+  box-shadow:
+    0 0 0 1px rgba(129, 140, 248, 0.18),
+    0 18px 40px rgba(99, 102, 241, 0.18);
+}
+
+/* ------------------------------------------------------------
+   PASO 2d — CTA primario: degradado sólido indigo (texto blanco
+   ≥ 6.3:1) + glow; hover oscurece en vez de aclarar para no
+   bajar el contraste por debajo de 4.5:1.
+   (Reemplaza a las reglas de contraste "verde" del v1, que se
+   eliminaron de global.css en este experimento.)
+   ------------------------------------------------------------ */
+.btn-primary {
+  background: var(--gradient-brand-solid);
+  color: #ffffff;
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.35);
+}
+
+.btn-primary,
+.btn-primary:hover {
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #4338ca 0%, #3730a3 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(99, 102, 241, 0.45);
+}
+
+/* ------------------------------------------------------------
+   PASO 3 — Mono como acento (el cuerpo ya es Inter vía tema)
+   ------------------------------------------------------------ */
+.badge,
+code,
+pre,
+kbd {
+  font-family: var(--font-family-mono);
+}
+
+/* ------------------------------------------------------------
+   PASO 4a — Navbar de vidrio (gana a la utility bg-background/95
+   por especificidad: 1 elemento + 2 clases)
+   ------------------------------------------------------------ */
+nav.fixed.top-0 {
+  background-color: rgba(8, 9, 13, 0.72);
+  backdrop-filter: blur(12px) saturate(1.4);
+  -webkit-backdrop-filter: blur(12px) saturate(1.4);
+}
+
+/* ------------------------------------------------------------
+   PASO 4b — Foco visible accesible
+   ------------------------------------------------------------ */
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid #818cf8;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ------------------------------------------------------------
+   PASO 4c — Respeta prefers-reduced-motion
+   ------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  body::before {
+    animation: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .card,
+  .btn-primary {
+    transition: none;
+  }
+}

@@ -1,4 +1,9 @@
 # ✨ Propuesta de estilo v2 — **Aurora Glass**
+
+> **✅ ESTADO: IMPLEMENTADO en esta rama (opción A, pasos 1–4).**
+> Ver *Registro de cambios* en `BITACORA_CAMBIOS.md` para el commit y la verificación.
+> ¿Volver al estilo v1 (Terminal Dark)? → `git revert` de los commits de estilo de esta rama
+> o seguir el *Revertir* de cada paso (abajo).
 > Rama: **`experiment/styles-v2`** (parte de `main` = tema *Terminal Dark* actual).
 > Documento de **propuesta**: aquí NO está implementado todavía. Si se aprueba, se implementa en
 > pasos (abajo) y se registra en `BITACORA_CAMBIOS.md`.
@@ -28,9 +33,9 @@ fondo casi negro con **auroras de color** difusas, **tarjetas de vidrio** (glass
 | `--color-background` | `#0d1117` | `#08090d` (negro azulado) |
 | `--color-surface` | `#161b22` | `rgba(255,255,255,0.045)` + `backdrop-filter: blur(14px)` |
 | `--color-surface-alt` | `#21262d` | `rgba(255,255,255,0.07)` |
-| `--color-primary` | `#3fb950` | `#6366f1` (indigo 500) |
-| `--color-primary-light` | `#56d364` | `#818cf8` |
-| `--color-primary-dark` | `#0f3d24` | `#4338ca` |
+| `--color-primary` | `#3fb950` | **`#4f46e5`** (indigo 600) — ajuste sobre el propuesto `#6366f1` (indigo 500) para que el CTA con texto blanco pase 4.5:1 (6.29:1) |
+| `--color-primary-light` | `#56d364` | `#818cf8` (títulos/enlaces: 6.67:1 sobre el fondo) |
+| `--color-primary-dark` | `#0f3d24` | `#3730a3` (footer y `.badge-tech` con texto blanco: 9.93:1) |
 | `--color-accent` | `#d29922` | `#22d3ee` (cian 400) |
 | `--color-accent-light` | `#e3b341` | `#67e8f9` |
 | `--color-text` | `#e6edf3` | `#f4f5f7` |
@@ -39,8 +44,8 @@ fondo casi negro con **auroras de color** difusas, **tarjetas de vidrio** (glass
 | `--font-family-base` | JetBrains Mono (todo) | **Inter** (cuerpo) · JetBrains Mono → solo `code`, `.eyebrow`, etiquetas |
 | `--font-size-hero` | `3rem` | `3.25rem` + `background-clip:text` en degradado |
 
-**Degradado de marca:** `linear-gradient(90deg, #818cf8 0%, #22d3ee 100%)` → H1, CTA primario y
-bordes inferiores de sección.
+**Degradado de marca:** `linear-gradient(90deg, #818cf8 0%, #22d3ee 100%)` → **H1 y títulos de sección** (texto en degradado).
+El CTA usa `--gradient-brand-solid` (`135deg, #4f46e5 → #4338ca`) para mantener blanco ≥ 4.5:1 (el degradado indigo→cian no pasa contraste con texto blanco).
 
 ## 🧱 Efectos (4 pasos, cada uno revertible por separado)
 
@@ -77,7 +82,7 @@ Producción queda intacta hasta que se haga merge a `main` + `npx vercel --prod 
 
 ## 🗺️ Decisión
 
-- [ ] **A** → Implementar Aurora Glass completo (pasos 1–4)
+- [x] **A** → Implementado Aurora Glass completo (pasos 1–4) en esta rama
 - [ ] **B** → Solo pasos 1–2 (color/glass, conservar Mono como tipografía única)
 - [ ] **C** → Descartar; proponer alternativa (ver abajo)
 - [ ] **D** → Mantener v1 Terminal Dark en producción

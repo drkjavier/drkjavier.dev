@@ -101,6 +101,20 @@ python3 -c "import yaml;print(yaml.safe_load(open('src/data/experience.yaml'))['
 
 ## 📅 Registro de cambios
 
+### 📅 2026-11-13 — feat(style): implementa Aurora Glass (v2, pasos 1–4)
+**Autor:** modelo (pi/mimo-v2.6-flash) · **Commit:** `<pendiente>` (rama `experiment/styles-v2`)
+**Qué cambió:**
+- `src/styles/themes/theme-aurora.css` **(nuevo)** → tema Aurora Glass: fondo `#08090d`, superficies `rgba(255,255,255,.045/.07)`, primario `#4f46e5` (+light `#818cf8`, dark `#3730a3`), acento cian `#22d3ee`, tokens `--gradient-brand` y `--font-family-mono`, base **Inter**.
+- `src/styles/experiments-v2.css` **(nuevo)** → aurora de fondo (`body::before` fijo con 3 radial-gradients + deriva 24 s), títulos en degradado (`h1`, `.section-title`), tarjetas glass (`backdrop-filter` + hover lift), CTA con degradado sólido indigo + glow, navbar de vidrio, `:focus-visible` indigo, `prefers-reduced-motion`.
+- `src/styles/global.css` → imports a `theme-aurora.css` + `experiments-v2.css` (se deja de importar `experiments.css` v1 → desaparecen scanlines y glow verde); eliminadas las reglas de contraste sobre verde del v1 (`#06120a`).
+- `tailwind.config.mjs` → `sans: Inter`, `mono: JetBrains Mono`.
+- `src/layouts/Layout.astro` → Google Fonts: `Inter` + `JetBrains Mono` (se quita `Fira Code`).
+- `PROPUESTA_ESTILO_V2.md` → marcada como implementada; tokens ajustados (ver *Por qué*).
+**Por qué:** decisión **A** del dueño: pasar de "terminal hacker" a "producto SaaS premium" (look Linear/Vercel) manteniendo legibilidad para reclutadores. Ajuste sobre la propuesta original: primario `#6366f1 → #4f46e5` porque el CTA con texto blanco en indigo 500 daba 4.46:1 (<4.5:1); con indigo 600 → **6.29:1**.
+**Cómo se verificó:** `npm run build` OK (2 páginas); CSS de `dist/` con `08090d`/`4f46e5`/`22d3ee`/`818cf8`, `aurora-drift`, 7× `backdrop-filter`, 3× `radial-gradient`, e **Inter** en el link de fuentes; **ausentes** `3fb950`, `d29922`, `repeating-linear-gradient`, `06120a` (v1 eliminado); dev server sirve `--color-primary: #4f46e5`; contraste calculado (python): texto 18.2:1, muted 7.9:1, CTA 6.29:1, títulos 6.7:1, enlaces 11:1, footer blanco 9.93:1 — **todos ≥4.5:1**.
+**Deploy:** no aplica (rama local `experiment/styles-v2`; producción sigue con v1 Terminal Dark hasta merge explícito + `npx vercel --prod --yes`).
+**Impacto / pendientes:** revisar en local (`npm run dev`) y decidir merge; si se mergea, producción pasa a Aurora Glass; para volver a v1: revertir los commits de esta rama o seguir el *Revertir* de `PROPUESTA_ESTILO_V2.md`.
+
 ### 📅 2026-11-13 — docs: guías actualizadas al tema Terminal Dark y nueva rama de experimentos
 **Autor:** modelo (pi/mimo-v2.6-flash) · **Commit:** `da693bb` (rama `main`)
 **Qué cambió:**
