@@ -2,6 +2,7 @@
    GLOBAL STYLES
    ============================================ */
 @import './themes/theme-corporate.css';
+@import './experiments.css';  /* ajustes descartables — ver EXPERIMENTOS_ESTILO.md */
 
 @tailwind base;
 @tailwind components;
