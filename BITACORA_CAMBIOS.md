@@ -84,6 +84,7 @@ python3 -c "import yaml;print(yaml.safe_load(open('src/data/experience.yaml'))['
 | 5 | 🟢 Resuelto | Períodos laborales corregidos: BDG `2026-04 → Actualidad` (primer puesto), Ericsson `2015-09 → 2026-02`, Icon Americas `2013-09 → 2015-09`. | 2026-11-12 |
 | 6 | ℹ️ Info | Repos **privados** (no enlazar en el sitio): `beautify-hub`. Repos **sin remoto**: `bean-auditor-backend`, `spring-kafka-app`, `vertx-*`, `tickets`. Duplicado: `it-tickets-app` ≈ `it-tickets` (se usa `it-tickets`). | 2026-11-12 |
 | 7 | ℹ️ Info | `tuipr` en el portafolio es un **fork** (`fork: true` en la API de GitHub); se presenta como "Open Source (fork)" y su tap es `homebrew-tuipr`. | 2026-11-12 |
+| 8 | 🟢 Resuelto | **Tema del sitio**: de *Corporate* (azul `#1a365d`, Inter) a **Terminal Dark** (fondo `#0d1117`, primary verde `#3fb950`, acento ámbar `#d29922`, JetBrains Mono, glow verde + scanlines CRT). El archivo sigue llamándose `src/styles/themes/theme-corporate.css` (solo cambió su contenido); lo descartable vive en `src/styles/experiments.css` → mapeo de reversiones en `EXPERIMENTOS_ESTILO.md`. | 2026-11-13 |
 
 ---
 
@@ -100,6 +101,15 @@ python3 -c "import yaml;print(yaml.safe_load(open('src/data/experience.yaml'))['
 
 ## 📅 Registro de cambios
 
+### 📅 2026-11-13 — style(theme): tema Terminal Dark pasa de `experiment/styles` a `main`
+**Autor:** modelo (pi/mimo-v2.6-flash) · **Commit:** `9e4fba0` (merge, rama `main`)
+**Qué cambió:**
+- Merge `experiment/styles` → `main` (sin conflictos): `src/styles/themes/theme-corporate.css` (Corporate azul → Terminal Dark), `tailwind.config.mjs` (Inter → JetBrains Mono), `src/styles/global.css` (+`@import './experiments.css'` y contraste de texto de `.btn-primary` sobre verde), `src/styles/experiments.css` (nuevo: glow verde en `.card` + scanlines CRT en `body::after`), `src/layouts/Layout.astro` (Google Fonts ahora carga JetBrains Mono + Fira Code), `EXPERIMENTOS_ESTILO.md` (nuevo: mapa de experimentos y cómo revertirlos).
+**Por qué:** el dueño pidió llevar a `main` (y desplegar) los experimentos de estilo creados en la rama `experiment/styles` (commits `433ec47`, `d5e4651`, `1615971`, `64f063d`).
+**Cómo se verificó:** `npm run build` OK (2 páginas); CSS de `dist/` con `0d1117` + 5× `3fb950` + JetBrains Mono + `repeating-linear-gradient`; dev server `127.0.0.1:4321` sirve `--color-primary: #3fb950` y `Terminal Dark`. ⚠️ Antes del deploy, producción seguía con el tema viejo (`1a365d`) — por eso "no se veían los cambios en local" si se miraba la URL de Vercel o una pestaña cacheada.
+**Deploy:** producción ✅ https://drkjavier-dev.vercel.app
+**Impacto / pendientes:** `README.md`/`AI_UPDATE_GUIDE.md` describen el tema como "corporate" (el nombre del archivo no cambió, pero los colores ya no); rama `experiment/styles` queda fusionada y puede borrarse; para revertir solo el estilo: ver `EXPERIMENTOS_ESTILO.md`.
+
 ### 📅 2026-11-13 — feat(projects): profundización de proyectos y corrección de etiquetas Open Source
 **Autor:** modelo (pi/mimo-v2.6-flash) · **Commit:** `e92f712` (rama `main`)
 **Qué cambió:**
@@ -107,8 +117,8 @@ python3 -c "import yaml;print(yaml.safe_load(open('src/data/experience.yaml'))['
 - Etiquetas `company` corregidas: solo `tuipr + Homebrew tap` queda como `Open Source (MIT)`; los demás pasan de `Open Source` a `Personal project`.
 **Por qué:** (1) el dueño quiere que un reclutador vea un panorama amplio de habilidades por proyecto; (2) verificación con la API de GitHub (`/repos/{r}` y `/repos/{r}/license`, 2026-11-13): de los 8 proyectos solo `tuipr` tiene licencia (MIT, heredada de `cortezramos/tuipr`); los otros 6 repos públicos devuelven **404 en `/license`** → sin licencia no son open source (todo reservado), por lo que no se les puede poner esa etiqueta. El proyecto de Ericsson es propietario y sin repo público.
 **Cómo se verificó:** YAML válido (python yaml); `npm run build` OK (2 páginas); HTML de producción con 1× `Open Source (MIT)`, 6× `Personal project`, 1× `Ericsson Guatemala`; highlights nuevos presentes (Spring Cloud, Gherkin, GoReleaser, offline-first).
-**Deploy:** producción ❌ pendiente (`npx vercel --prod --yes`)
-**Impacto / pendientes:** deploy pendiente; si se quiere que los repos personales sean open source hay que añadirles un archivo `LICENSE` (p. ej. MIT) y reetiquetarlos; no se modificaron componentes.
+**Deploy:** producción ✅ https://drkjavier-dev.vercel.app (deployment `drkjavier-9dumyf10d-dereck-curtis-projects.vercel.app`)
+**Impacto / pendientes:** desplegado y verificado en vivo (1× `Open Source (MIT)`, 6× `Personal project`, highlights nuevos presentes). Si se quiere que los repos personales sean open source hay que añadirles un archivo `LICENSE` (p. ej. MIT) y reetiquetarlos; no se modificaron componentes.
 
 ### 📅 2026-11-12 — feat(projects): proyectos de GitHub en el portafolio
 **Autor:** modelo (opencode/go) · **Commit:** `d762310` (rama `main`)
