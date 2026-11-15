@@ -101,6 +101,17 @@ python3 -c "import yaml;print(yaml.safe_load(open('src/data/experience.yaml'))['
 
 ## 📅 Registro de cambios
 
+### 📅 2026-11-13 — docs: guía canónica de temas (`GUIA_DE_TEMAS.md`)
+**Autor:** modelo (pi/mimo-v2.6-flash) · **Commit:** `b1692e5` (rama `main`)
+**Qué cambió:**
+- `GUIA_DE_TEMAS.md` **(nuevo, raíz)** → documento ejecutable para agentes: TL;DR del switch (`Layout.astro:16` → `data-theme`), mapa de archivos con qué se toca/no se toca, catálogo de temas, procedimientos A (cambiar tema y publicar), B (previsualizar con el botón dev), C (crear tema nuevo paso a paso), 10 reglas duras (scope obligatorio, `global.css` genérico, contraste `--color-on-primary`, botón solo dev…) y comandos de verificación (build, dist, dev, prod).
+- `AI_UPDATE_GUIDE.md` → la nota de tema ahora apunta a `GUIA_DE_TEMAS.md` como referencia canónica.
+- `README.md` → sección *Cambiar tema* enlaza la guía al inicio.
+**Por qué:** el dueño pidió dejar documentado **dónde y con qué cambiar** para que cualquier agente futuro lo haga bien sin re-descubrir el sistema.
+**Cómo se verificó:** todos los paths/líneas citados en la guía contrastados contra el código (`Layout.astro:16`, `Navbar.astro:13`, `ThemeToggle.astro:11`, imports de `global.css`); comandos `grep` de la guía ejecutados contra `dist/` real y dev server.
+**Deploy:** no aplica (docs puros; producción intacta con default `terminal`).
+**Impacto / pendientes:** si se agregan temas, actualizar también el catálogo de la guía (Procedimiento C, pasos 5-6).
+
 ### 📅 2026-11-13 — chore: merge `experiment/styles-v2` → `main` (fast-forward)
 **Autor:** modelo (pi/mimo-v2.6-flash) · **Commit:** `46bc145` (rama `main`, fast-forward desde `b5d8f30`)
 **Qué cambió:**
