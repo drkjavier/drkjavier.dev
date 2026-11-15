@@ -30,7 +30,8 @@ drkjavier.dev/
 ```
 
 > **🎨 Tema visual actual:** **Terminal Dark** (default) — fondo `#0d1117`, superficies `#161b22`, primario verde `#3fb950`, acento ámbar `#d29922`, tipografía **JetBrains Mono**.
-> **Switch de tema = UN nombre:** `src/layouts/Layout.astro` → `<html data-theme="terminal">` (`terminal` ↔ `aurora`). Cada tema arrastra sus tokens, efectos y tipografía (ver README → *Cambiar tema*).
+> **📖 Si la tarea involucra cambiar, crear o previsualizar temas → [`GUIA_DE_TEMAS.md`](GUIA_DE_TEMAS.md) es la referencia canónica** (dónde cambiar: `Layout.astro` línea 16 `data-theme`; con qué: `terminal` ↔ `aurora`; procedimientos, verificación y reglas duras).
+> **Switch de tema = UN nombre:** `src/layouts/Layout.astro` → `<html data-theme="terminal">` (`terminal` ↔ `aurora`). Cada tema arrastra sus tokens, efectos y tipografía.
 > Mapeo de experimentos y cómo revertirlos: [`EXPERIMENTOS_ESTILO.md`](EXPERIMENTOS_ESTILO.md) · Tema alterno: [`PROPUESTA_ESTILO_V2.md`](PROPUESTA_ESTILO_V2.md).
 > **No cambiar el tema salvo petición explícita.** (En desarrollo hay un botón en la navbar para previsualizar; no existe en producción.)
 

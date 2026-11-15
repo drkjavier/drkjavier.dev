@@ -164,6 +164,7 @@ degrees:
 
 ## 🎨 Cambiar tema
 
+> **📖 Guía completa paso a paso (para agentes de IA y personas): [`GUIA_DE_TEMAS.md`](GUIA_DE_TEMAS.md)** — dónde cambiar, con qué cambiar, cómo verificar y cómo crear temas nuevos.
 **El switch es un solo nombre** en `src/layouts/Layout.astro`:
 
 ```astro
